@@ -411,6 +411,44 @@
       background-color: #885e12;
       box-shadow: 0 4px 16px rgba(107, 74, 14, 0.5);
     }
+
+    /* ── Zip download button ─────────────────────────────────────────────────── */
+
+    .btn-zip-download {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--accent-primary);
+      border-radius: 8px;
+      background-color: var(--bg-tertiary);
+      color: var(--accent-primary);
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+      z-index: 10;
+    }
+
+    .btn-zip-download:hover {
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    .btn-zip-download:active {
+      transform: translateY(1px);
+    }
+
+    .btn-zip-download:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
   </style>
 </head>
 <body>
@@ -437,7 +475,8 @@
         audioCtx: null,
         currentRecording: null,
         modalOpen: false,
-        playbackAudio: null
+        playbackAudio: null,
+        zipEntries: new Map()
       };
 
       // ── Browser detection ────────────────────────────────────────────────────
@@ -1137,10 +1176,160 @@
         return buffer;
       }
 
-      // ── Placeholder stubs (implemented in Tasks 8, 9, 10) ───────────────────
+      // ── File Saving ───────────────────────────────────────────────────────────
 
-      function saveRecording(index, audioData) {
-        console.log('saveRecording() not yet implemented. index:', index, 'samples:', audioData.length);
+      function saveRecording(index, samples) {
+        if (state.browser.canDirectSave && state.dirHandle) {
+          saveRecordingDirect(index, samples);
+        } else {
+          saveRecordingZip(index, samples);
+        }
+      }
+
+      async function saveRecordingDirect(index, samples) {
+        var entry = state.entries[index];
+        var wavBuffer = encodeWAV(samples, 44100);
+        try {
+          var fileHandle = await state.dirHandle.getFileHandle(entry.filename, { create: true });
+          var writable = await fileHandle.createWritable();
+          await writable.write(wavBuffer);
+          await writable.close();
+        } catch (err) {
+          console.error('Failed to save file:', err);
+        }
+      }
+
+      function saveRecordingZip(index, samples) {
+        var entry = state.entries[index];
+        var wavBuffer = encodeWAV(samples, 44100);
+        state.zipEntries.set(entry.filename, wavBuffer);
+        updateZipButton();
+      }
+
+      // ── ZIP encoder (store method, no compression) ────────────────────────────
+
+      function crc32(data) {
+        var table = new Uint32Array(256);
+        for (var i = 0; i < 256; i++) {
+          var c = i;
+          for (var j = 0; j < 8; j++) {
+            c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+          }
+          table[i] = c;
+        }
+        var bytes = new Uint8Array(data);
+        var crc = 0xFFFFFFFF;
+        for (var i = 0; i < bytes.length; i++) {
+          crc = table[(crc ^ bytes[i]) & 0xFF] ^ (crc >>> 8);
+        }
+        return (crc ^ 0xFFFFFFFF) >>> 0;
+      }
+
+      function buildZip(entries) {
+        // entries: Map of filename to ArrayBuffer
+        var localParts = [];
+        var centralParts = [];
+        var offset = 0;
+        var encoder = new TextEncoder();
+        var entryCount = 0;
+
+        entries.forEach(function(data, filename) {
+          var nameBytes = encoder.encode(filename);
+          var crc = crc32(data);
+          var size = data.byteLength;
+
+          // Local file header (30 bytes + filename length)
+          var local = new ArrayBuffer(30 + nameBytes.length);
+          var lv = new DataView(local);
+          lv.setUint32(0, 0x04034b50, true);   // local file header signature
+          lv.setUint16(4, 20, true);            // version needed
+          lv.setUint16(6, 0, true);             // flags
+          lv.setUint16(8, 0, true);             // compression: store
+          lv.setUint16(10, 0, true);            // mod time
+          lv.setUint16(12, 0, true);            // mod date
+          lv.setUint32(14, crc, true);          // crc-32
+          lv.setUint32(18, size, true);         // compressed size
+          lv.setUint32(22, size, true);         // uncompressed size
+          lv.setUint16(26, nameBytes.length, true); // filename length
+          lv.setUint16(28, 0, true);            // extra field length
+          new Uint8Array(local, 30).set(nameBytes);
+
+          localParts.push(local);
+          localParts.push(data);  // file data follows header
+
+          // Central directory entry (46 bytes + filename length)
+          var central = new ArrayBuffer(46 + nameBytes.length);
+          var cv = new DataView(central);
+          cv.setUint32(0, 0x02014b50, true);    // central dir signature
+          cv.setUint16(4, 20, true);             // version made by
+          cv.setUint16(6, 20, true);             // version needed
+          cv.setUint16(8, 0, true);              // flags
+          cv.setUint16(10, 0, true);             // compression: store
+          cv.setUint16(12, 0, true);             // mod time
+          cv.setUint16(14, 0, true);             // mod date
+          cv.setUint32(16, crc, true);           // crc-32
+          cv.setUint32(20, size, true);          // compressed size
+          cv.setUint32(24, size, true);          // uncompressed size
+          cv.setUint16(28, nameBytes.length, true); // filename length
+          cv.setUint16(30, 0, true);             // extra field length
+          cv.setUint16(32, 0, true);             // comment length
+          cv.setUint16(34, 0, true);             // disk number start
+          cv.setUint16(36, 0, true);             // internal attrs
+          cv.setUint32(38, 0, true);             // external attrs
+          cv.setUint32(42, offset, true);        // local header offset
+          new Uint8Array(central, 46).set(nameBytes);
+
+          centralParts.push(central);
+          offset += 30 + nameBytes.length + size;
+          entryCount++;
+        });
+
+        var centralDirOffset = offset;
+        var centralDirSize = 0;
+        for (var i = 0; i < centralParts.length; i++) centralDirSize += centralParts[i].byteLength;
+
+        // End of central directory (22 bytes)
+        var eocd = new ArrayBuffer(22);
+        var ev = new DataView(eocd);
+        ev.setUint32(0, 0x06054b50, true);
+        ev.setUint16(4, 0, true);
+        ev.setUint16(6, 0, true);
+        ev.setUint16(8, entryCount, true);
+        ev.setUint16(10, entryCount, true);
+        ev.setUint32(12, centralDirSize, true);
+        ev.setUint32(16, centralDirOffset, true);
+        ev.setUint16(20, 0, true);
+
+        var parts = localParts.concat(centralParts);
+        parts.push(eocd);
+        return new Blob(parts, { type: 'application/zip' });
+      }
+
+      function downloadZip() {
+        if (state.zipEntries.size === 0) return;
+        var blob = buildZip(state.zipEntries);
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'recordings.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      function updateZipButton() {
+        if (state.browser.canDirectSave) return;
+        var existing = document.getElementById('zip-download-btn');
+        if (!existing) {
+          existing = document.createElement('button');
+          existing.id = 'zip-download-btn';
+          existing.className = 'btn-zip-download';
+          existing.addEventListener('click', downloadZip);
+          var mainArea = document.querySelector('.main-area');
+          if (mainArea) mainArea.insertBefore(existing, mainArea.firstChild);
+        }
+        existing.textContent = 'Download All (' + state.zipEntries.size + ' files)';
       }
 
       function saveSession() {
