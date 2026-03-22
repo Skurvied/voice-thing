@@ -161,6 +161,169 @@
       background-color: var(--border-color);
       border-radius: 2px;
     }
+
+    /* ── Setup Screen ────────────────────────────────────────────────────────── */
+
+    .setup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .setup__icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--bg-tertiary);
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .setup__icon svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--accent-primary);
+    }
+
+    .setup__title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    /* Info card */
+    .setup__card {
+      width: 100%;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .setup__info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.875rem 1.25rem;
+      gap: 1rem;
+    }
+
+    .setup__info-row + .setup__info-row {
+      border-top: 1px solid var(--border-color);
+    }
+
+    .setup__info-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+
+    .setup__info-value {
+      font-size: 0.875rem;
+      color: var(--text-primary);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* Saving section */
+    .setup__saving {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    /* Notice (zip mode) */
+    .setup__notice {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      width: 100%;
+    }
+
+    /* Choose Output Folder button */
+    .btn-choose-folder {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-choose-folder:hover {
+      background-color: var(--bg-secondary);
+      border-color: var(--accent-primary);
+    }
+
+    .btn-choose-folder:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+
+    .btn-choose-folder--selected {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    /* Begin Recording button */
+    .btn-begin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.75rem 1.75rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 0 0 0 var(--accent-glow);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-begin:hover {
+      background-color: var(--accent-hover);
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .btn-begin:active {
+      background-color: var(--accent-active);
+      transform: translateY(1px);
+    }
+
+    .btn-begin:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
   </style>
 </head>
 <body>
@@ -179,8 +342,34 @@
         scriptName: '',
         currentIndex: 0,
         completedLines: new Set(),
-        screen: 'landing'
+        screen: 'landing',
+        browser: null,
+        dirHandle: null
       };
+
+      // ── Browser detection ────────────────────────────────────────────────────
+
+      /**
+       * Detect the current browser and whether it supports the File System Access API.
+       * @returns {{ name: string, canDirectSave: boolean }}
+       */
+      function detectBrowser() {
+        var ua = navigator.userAgent;
+        var name = 'Unknown';
+
+        if (ua.includes('Firefox')) name = 'Firefox';
+        else if (ua.includes('Edg/')) name = 'Edge';
+        else if (ua.includes('OPR/') || ua.includes('Opera')) name = 'Opera';
+        else if (ua.includes('Brave')) name = 'Brave';
+        else if (ua.includes('Arc')) name = 'Arc';
+        else if (ua.includes('Chrome')) name = 'Chrome';
+        else if (ua.includes('Safari')) name = 'Safari';
+
+        // Feature-detect File System Access API rather than relying solely on UA
+        var canDirectSave = typeof window.showDirectoryPicker === 'function';
+
+        return { name: name, canDirectSave: canDirectSave };
+      }
 
       // ── Script parser ─────────────────────────────────────────────────────────
 
@@ -250,10 +439,139 @@
       }
 
       /**
-       * Placeholder — will be implemented in Task 3.
+       * Render the setup screen into the #app container.
+       * Detects browser capabilities and lets the user choose an output folder
+       * (direct save) or acknowledges zip-download mode before proceeding.
        */
       function showSetupScreen() {
-        console.log('showSetupScreen called — not yet implemented (Task 3).');
+        var browser = detectBrowser();
+        state.browser = browser;
+        state.screen = 'setup';
+
+        // Clear #app safely
+        var app = document.getElementById('app');
+        while (app.firstChild) {
+          app.removeChild(app.firstChild);
+        }
+
+        // Outer container
+        var setup = document.createElement('div');
+        setup.className = 'setup';
+
+        // -- Icon (reuse mic)
+        var iconWrap = document.createElement('div');
+        iconWrap.className = 'setup__icon';
+        iconWrap.appendChild(buildMicIcon());
+        setup.appendChild(iconWrap);
+
+        // -- Title
+        var title = document.createElement('h1');
+        title.className = 'setup__title';
+        title.textContent = 'Setup';
+        setup.appendChild(title);
+
+        // -- Info card
+        var card = document.createElement('div');
+        card.className = 'setup__card';
+
+        // Browser row
+        var browserRow = document.createElement('div');
+        browserRow.className = 'setup__info-row';
+        var browserLabel = document.createElement('span');
+        browserLabel.className = 'setup__info-label';
+        browserLabel.textContent = 'Browser';
+        var browserValue = document.createElement('span');
+        browserValue.className = 'setup__info-value';
+        browserValue.textContent = browser.name;
+        browserRow.appendChild(browserLabel);
+        browserRow.appendChild(browserValue);
+        card.appendChild(browserRow);
+
+        // Save mode row
+        var modeRow = document.createElement('div');
+        modeRow.className = 'setup__info-row';
+        var modeLabel = document.createElement('span');
+        modeLabel.className = 'setup__info-label';
+        modeLabel.textContent = 'Save mode';
+        var modeValue = document.createElement('span');
+        modeValue.className = 'setup__info-value';
+        modeValue.textContent = browser.canDirectSave ? 'Direct folder save' : 'Zip download';
+        modeRow.appendChild(modeLabel);
+        modeRow.appendChild(modeValue);
+        card.appendChild(modeRow);
+
+        // Script row
+        var scriptRow = document.createElement('div');
+        scriptRow.className = 'setup__info-row';
+        var scriptLabel = document.createElement('span');
+        scriptLabel.className = 'setup__info-label';
+        scriptLabel.textContent = 'Script';
+        var scriptValue = document.createElement('span');
+        scriptValue.className = 'setup__info-value';
+        scriptValue.textContent = state.entries.length + ' lines loaded from ' + state.scriptName;
+        scriptRow.appendChild(scriptLabel);
+        scriptRow.appendChild(scriptValue);
+        card.appendChild(scriptRow);
+
+        setup.appendChild(card);
+
+        // -- Saving section
+        var savingSection = document.createElement('div');
+        savingSection.className = 'setup__saving';
+
+        // "Begin Recording" button — created now, shown after confirmation
+        var beginBtn = document.createElement('button');
+        beginBtn.type = 'button';
+        beginBtn.className = 'btn-begin';
+        beginBtn.textContent = 'Begin Recording';
+        beginBtn.style.display = 'none';
+        beginBtn.addEventListener('click', function () {
+          // Placeholder: recording screen will be implemented in a later task
+          console.log('Begin Recording clicked. dirHandle:', state.dirHandle);
+        });
+
+        if (browser.canDirectSave) {
+          // Show "Choose Output Folder" button
+          var chooseFolderBtn = document.createElement('button');
+          chooseFolderBtn.type = 'button';
+          chooseFolderBtn.className = 'btn-choose-folder';
+          chooseFolderBtn.textContent = 'Choose Output Folder';
+          chooseFolderBtn.addEventListener('click', function () {
+            window.showDirectoryPicker({ mode: 'readwrite' })
+              .then(function (handle) {
+                state.dirHandle = handle;
+                // Update button to show chosen folder name
+                chooseFolderBtn.textContent = 'Folder: ' + handle.name;
+                chooseFolderBtn.classList.add('btn-choose-folder--selected');
+                beginBtn.style.display = '';
+              })
+              .catch(function (err) {
+                // User cancelled or permission denied — do nothing
+                if (err.name !== 'AbortError') {
+                  console.error('showDirectoryPicker error:', err);
+                }
+              });
+          });
+          savingSection.appendChild(chooseFolderBtn);
+        } else {
+          // Show info message about zip mode
+          var zipNotice = document.createElement('p');
+          zipNotice.className = 'setup__notice';
+          if (browser.name !== 'Unknown') {
+            zipNotice.textContent = 'Your browser (' + browser.name + ') doesn\'t support direct folder saving. Recordings will be bundled as a zip download.';
+          } else {
+            zipNotice.textContent = 'Could not detect your browser. Some features may not work as expected. For the best experience, use Chrome or Edge.';
+          }
+          savingSection.appendChild(zipNotice);
+
+          // Acknowledge and reveal begin button immediately
+          beginBtn.style.display = '';
+        }
+
+        savingSection.appendChild(beginBtn);
+        setup.appendChild(savingSection);
+
+        app.appendChild(setup);
       }
 
       // ── SVG helpers ──────────────────────────────────────────────────────────
