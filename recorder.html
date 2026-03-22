@@ -12,21 +12,27 @@
       padding: 0;
     }
 
-    /* Dark Theme Variables */
+    /* Warm Organic Theme Variables */
     :root {
-      --bg-primary: #0f1117;
-      --bg-secondary: #1a1d27;
-      --bg-tertiary: #242736;
-      --border-color: #2e3248;
-      --text-primary: #e8eaf0;
-      --text-secondary: #9aa0b8;
-      --text-muted: #5c6280;
-      --accent-primary: #6c7ef7;
-      --accent-hover: #8491f9;
-      --accent-active: #5a6be0;
-      --accent-glow: rgba(108, 126, 247, 0.2);
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+      --bg-primary: #1c1917;        /* warm near-black (stone-900) */
+      --bg-secondary: #292524;      /* warm dark gray (stone-800) */
+      --bg-tertiary: #44403c;       /* warm mid-gray (stone-700) */
+      --border-color: #57534e;      /* warm border (stone-600) */
+      --text-primary: #faf9f6;      /* warm cream white */
+      --text-secondary: #a8a29e;    /* warm muted (stone-400) */
+      --text-muted: #78716c;        /* warm muted (stone-500) */
+      --accent-primary: #c2956a;    /* warm copper/caramel */
+      --accent-hover: #d4a574;      /* lighter copper */
+      --accent-active: #b0845c;     /* darker copper */
+      --accent-glow: rgba(194, 149, 106, 0.15);  /* warm glow */
+      --success: #6b8f71;           /* muted sage green */
+      --success-text: #c2dbc6;      /* light sage */
+      --warning: #b59342;           /* warm amber */
+      --warning-text: #f0dba0;      /* light amber */
+      --danger: #c45c5c;            /* muted warm red */
+      --font-sans: 'Georgia', 'Times New Roman', serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+      --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     /* Base */
@@ -34,7 +40,7 @@
       height: 100%;
       background-color: var(--bg-primary);
       color: var(--text-primary);
-      font-family: var(--font-sans);
+      font-family: var(--font-ui);
       font-size: 16px;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -68,7 +74,7 @@
       height: 72px;
       background-color: var(--bg-tertiary);
       border: 2px solid var(--border-color);
-      border-radius: 20px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -102,21 +108,19 @@
       gap: 0.6rem;
       background-color: var(--accent-primary);
       color: #ffffff;
-      font-family: var(--font-sans);
+      font-family: var(--font-ui);
       font-size: 0.95rem;
       font-weight: 600;
       padding: 0.75rem 1.75rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
-      box-shadow: 0 0 0 0 var(--accent-glow);
+      transition: background-color 0.15s ease, transform 0.1s ease;
       letter-spacing: 0.01em;
     }
 
     .btn-load:hover {
       background-color: var(--accent-hover);
-      box-shadow: 0 4px 20px var(--accent-glow);
     }
 
     .btn-load:active {
@@ -179,7 +183,7 @@
       height: 60px;
       background-color: var(--bg-tertiary);
       border: 2px solid var(--border-color);
-      border-radius: 16px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -203,7 +207,7 @@
       width: 100%;
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 6px;
       overflow: hidden;
     }
 
@@ -250,7 +254,7 @@
       line-height: 1.6;
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 10px;
+      border-radius: 6px;
       padding: 1rem 1.25rem;
       text-align: left;
       width: 100%;
@@ -264,12 +268,12 @@
       gap: 0.5rem;
       background-color: var(--bg-tertiary);
       color: var(--text-primary);
-      font-family: var(--font-sans);
+      font-family: var(--font-ui);
       font-size: 0.9rem;
       font-weight: 600;
       padding: 0.7rem 1.5rem;
       border: 1px solid var(--border-color);
-      border-radius: 10px;
+      border-radius: 6px;
       cursor: pointer;
       width: 100%;
       transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -297,22 +301,20 @@
       justify-content: center;
       background-color: var(--accent-primary);
       color: #ffffff;
-      font-family: var(--font-sans);
+      font-family: var(--font-ui);
       font-size: 0.95rem;
       font-weight: 600;
       padding: 0.75rem 1.75rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 6px;
       cursor: pointer;
       width: 100%;
-      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
-      box-shadow: 0 0 0 0 var(--accent-glow);
+      transition: background-color 0.15s ease, transform 0.1s ease;
       letter-spacing: 0.01em;
     }
 
     .btn-begin:hover {
       background-color: var(--accent-hover);
-      box-shadow: 0 4px 20px var(--accent-glow);
     }
 
     .btn-begin:active {
@@ -327,23 +329,32 @@
 
     /* ── Recording Screen ────────────────────────────────────────────────────── */
 
-    .recording-screen { display: flex; height: 100vh; }
-    .sidebar { width: 250px; overflow-y: auto; border-right: 1px solid var(--border-color, #333); background: var(--bg-secondary); }
-    .sidebar-item { padding: 8px 12px; cursor: pointer; font-size: 0.85em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .sidebar-item:hover { background: rgba(255,255,255,0.05); }
-    .sidebar-item.active { background: var(--accent-primary, #6366f1); color: #fff; }
-    .sidebar-item.completed::before { content: '\2713  '; color: #4caf50; }
-    .sidebar-item.needs-rerecord::before { content: '\26A0  '; color: #ff9800; }
+    .recording-screen { display: flex; flex-direction: column; height: 100vh; }
+    .progress-bar { width: 100%; height: 3px; background: var(--bg-tertiary); }
+    .progress-bar__fill { height: 100%; background: var(--accent-primary); transition: width 0.3s ease; }
+    .recording-screen__panels { display: flex; flex: 1; min-height: 0; }
+    .sidebar { width: 250px; overflow-y: auto; border-right: 1px solid var(--border-color); background: var(--bg-secondary); }
+    .sidebar-item { padding: 8px 12px; cursor: pointer; font-size: 0.85em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid rgba(255,255,255,0.05); font-family: var(--font-ui); }
+    .sidebar-item:hover { background: var(--bg-tertiary); }
+    .sidebar-item.active { background: var(--accent-primary); color: #1c1917; font-weight: 600; }
+    .sidebar-item.completed::before { content: '\2713  '; color: var(--success); }
+    .sidebar-item.needs-rerecord::before { content: '\26A0  '; color: var(--warning); }
+    .main-panel { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+    .zip-controls { min-height: 0; padding: 1rem 1rem 0; display: flex; justify-content: flex-end; }
     .main-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2em; position: relative; }
-    .line-text { font-size: 1.5em; line-height: 1.6; max-width: 700px; text-align: center; margin-bottom: 1em; }
-    .progress { font-size: 0.9em; opacity: 0.6; margin-bottom: 2em; }
-    .file-label { font-size: 0.85em; opacity: 0.5; margin-bottom: 0.5em; font-family: monospace; }
-    .display-name { font-size: 0.8em; opacity: 0.4; margin-bottom: 2em; }
-    .record-prompt { font-size: 1.1em; opacity: 0.7; margin-top: 1em; }
-    .shortcuts-footer { position: absolute; bottom: 1em; font-size: 0.75em; opacity: 0.4; font-family: monospace; }
+    .line-text { font-size: 1.5em; line-height: 1.6; max-width: 700px; text-align: center; margin-bottom: 1em; font-family: var(--font-sans); }
+    .progress { font-size: 0.9em; opacity: 0.6; margin-bottom: 2em; font-family: var(--font-ui); }
+    .file-label { font-size: 0.85em; opacity: 0.5; margin-bottom: 0.5em; font-family: var(--font-mono); }
+    .display-name { font-size: 0.8em; opacity: 0.4; margin-bottom: 2em; font-family: var(--font-mono); }
+    .record-prompt { font-size: 1.1em; opacity: 0.7; margin-top: 1em; font-family: var(--font-ui); }
+    .recording-timer { font-family: var(--font-mono); font-size: 0.9em; margin-left: 0.5em; color: var(--danger); }
+    .status-message { margin-top: 1rem; max-width: 520px; text-align: center; font-size: 0.9rem; line-height: 1.5; color: var(--warning-text); background: rgba(181, 147, 66, 0.12); border: 1px solid rgba(181, 147, 66, 0.3); border-radius: 6px; padding: 0.75rem 1rem; font-family: var(--font-ui); }
+    .shortcuts-footer { position: absolute; bottom: 1em; font-size: 0.75em; opacity: 0.4; font-family: var(--font-mono); }
+    .level-meter { width: 200px; height: 6px; background: var(--bg-tertiary); border-radius: 3px; margin-top: 1em; overflow: hidden; }
+    .level-meter__fill { height: 100%; background: var(--accent-primary); border-radius: 3px; transition: width 0.05s linear; width: 0%; }
 
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .recording-dot { width: 16px; height: 16px; background: #e53935; border-radius: 50%; animation: pulse 1s infinite; display: inline-block; vertical-align: middle; margin-right: 8px; }
+    .recording-dot { width: 16px; height: 16px; background: var(--danger); border-radius: 50%; animation: pulse 1s infinite; display: inline-block; vertical-align: middle; margin-right: 8px; }
 
     /* ── Review action buttons ───────────────────────────────────────────────── */
 
@@ -359,14 +370,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-sans);
+      font-family: var(--font-ui);
       font-size: 0.925rem;
       font-weight: 600;
       padding: 0.65rem 1.4rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+      transition: background-color 0.15s ease, transform 0.1s ease;
       letter-spacing: 0.01em;
     }
 
@@ -379,66 +390,59 @@
       outline-offset: 3px;
     }
 
-    /* Play — neutral/info (blue-gray) */
+    /* Play — neutral (warm mid-gray) */
     .btn-play {
-      background-color: #3a4a6b;
-      color: #c5d4f5;
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
     }
 
     .btn-play:hover {
-      background-color: #4a5e88;
-      box-shadow: 0 4px 16px rgba(58, 74, 107, 0.5);
+      background-color: var(--border-color);
     }
 
-    /* Keep — green/success */
+    /* Keep — sage green/success */
     .btn-keep {
-      background-color: #1e6b3a;
-      color: #a4f0c0;
+      background-color: var(--success);
+      color: var(--success-text);
     }
 
     .btn-keep:hover {
-      background-color: #27884a;
-      box-shadow: 0 4px 16px rgba(30, 107, 58, 0.5);
+      background-color: #7da384;
     }
 
     /* Retry — amber/warning */
     .btn-retry {
-      background-color: #6b4a0e;
-      color: #fcd770;
+      background-color: var(--warning);
+      color: var(--warning-text);
     }
 
     .btn-retry:hover {
-      background-color: #885e12;
-      box-shadow: 0 4px 16px rgba(107, 74, 14, 0.5);
+      background-color: #c8a549;
     }
 
     /* ── Zip download button ─────────────────────────────────────────────────── */
 
     .btn-zip-download {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-sans);
+      font-family: var(--font-ui);
       font-size: 0.875rem;
       font-weight: 600;
       padding: 0.55rem 1.1rem;
       border: 1px solid var(--accent-primary);
-      border-radius: 8px;
+      border-radius: 6px;
       background-color: var(--bg-tertiary);
       color: var(--accent-primary);
       cursor: pointer;
       letter-spacing: 0.01em;
-      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+      transition: background-color 0.15s ease, transform 0.1s ease;
       z-index: 10;
     }
 
     .btn-zip-download:hover {
       background-color: var(--accent-primary);
-      color: #ffffff;
-      box-shadow: 0 4px 16px var(--accent-glow);
+      color: #1c1917;
     }
 
     .btn-zip-download:active {
@@ -511,7 +515,12 @@
         playbackAudio: null,
         zipEntries: new Map(),
         storageAvailable: false,
-        sessionKey: ''
+        sessionKey: '',
+        uiMessage: '',
+        recordingStartTime: null,
+        recordingTimer: null,
+        analyser: null,
+        levelAnimFrame: null
       };
 
       // ── Browser detection ────────────────────────────────────────────────────
@@ -596,13 +605,17 @@
         if (!errorEl) {
           errorEl = document.createElement('p');
           errorEl.id = 'landing-error';
-          errorEl.style.cssText = 'color:#f87171;font-size:0.875rem;margin-top:0.5rem;';
+          errorEl.style.cssText = 'color:var(--danger);font-size:0.875rem;margin-top:0.5rem;font-family:var(--font-ui);';
           var landing = document.querySelector('.landing');
           if (landing) {
             landing.appendChild(errorEl);
           }
         }
         errorEl.textContent = msg;
+      }
+
+      function setUiMessage(msg) {
+        state.uiMessage = msg || '';
       }
 
       /**
@@ -616,11 +629,11 @@
 
         // Overlay
         var overlay = document.createElement('div');
-        overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,17,23,0.92);display:flex;align-items:center;justify-content:center;z-index:9999;padding:2rem;';
+        overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(28,25,23,0.92);display:flex;align-items:center;justify-content:center;z-index:9999;padding:2rem;';
 
         // Modal card
         var modal = document.createElement('div');
-        modal.style.cssText = 'background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:16px;padding:2rem;max-width:420px;width:100%;display:flex;flex-direction:column;gap:1.25rem;';
+        modal.style.cssText = 'background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:6px;padding:2rem;max-width:420px;width:100%;display:flex;flex-direction:column;gap:1.25rem;';
 
         // Title
         var title = document.createElement('h2');
@@ -641,7 +654,7 @@
         // Start Over button
         var startOverBtn = document.createElement('button');
         startOverBtn.type = 'button';
-        startOverBtn.style.cssText = 'font-family:var(--font-sans);font-size:0.9rem;font-weight:600;padding:0.6rem 1.2rem;border-radius:10px;cursor:pointer;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-color);';
+        startOverBtn.style.cssText = 'font-family:var(--font-ui);font-size:0.9rem;font-weight:600;padding:0.6rem 1.2rem;border-radius:6px;cursor:pointer;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-color);';
         startOverBtn.textContent = 'Start Over';
         startOverBtn.addEventListener('click', function () {
           try { localStorage.removeItem(state.sessionKey); } catch (e) { /* ignore */ }
@@ -657,16 +670,18 @@
         // Resume button
         var resumeBtn = document.createElement('button');
         resumeBtn.type = 'button';
-        resumeBtn.style.cssText = 'font-family:var(--font-sans);font-size:0.9rem;font-weight:600;padding:0.6rem 1.2rem;border-radius:10px;cursor:pointer;background:var(--accent-primary);color:#ffffff;border:none;';
+        resumeBtn.style.cssText = 'font-family:var(--font-ui);font-size:0.9rem;font-weight:600;padding:0.6rem 1.2rem;border-radius:6px;cursor:pointer;background:var(--accent-primary);color:#1c1917;border:none;';
         resumeBtn.textContent = 'Resume';
         resumeBtn.addEventListener('click', function () {
           state.currentIndex = session.currentIndex;
           state.completedLines = new Set(session.completedLines);
           state.needsRerecord = new Set();
+          setUiMessage('');
           // In zip mode, mark all restored completed lines as needs-rerecord
           var browser = detectBrowser();
           state.browser = browser;
           if (!browser.canDirectSave) {
+            state.completedLines = new Set();
             session.completedLines.forEach(function (idx) {
               state.needsRerecord.add(idx);
             });
@@ -691,6 +706,7 @@
         var browser = detectBrowser();
         state.browser = browser;
         state.screen = 'setup';
+        setUiMessage('');
 
         // Clear #app safely
         var app = document.getElementById('app');
@@ -762,7 +778,7 @@
         // -- Storage unavailable warning
         if (!state.storageAvailable) {
           var storageWarning = document.createElement('p');
-          storageWarning.style.cssText = 'font-size:0.875rem;color:#f87171;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.3);border-radius:10px;padding:0.875rem 1.25rem;width:100%;line-height:1.6;text-align:left;';
+          storageWarning.style.cssText = 'font-size:0.875rem;color:var(--danger);background:rgba(196,92,92,0.08);border:1px solid rgba(196,92,92,0.3);border-radius:6px;padding:0.875rem 1.25rem;width:100%;line-height:1.6;text-align:left;font-family:var(--font-ui);';
           storageWarning.textContent = 'Session saving is not available in this browser when opened as a local file. Your progress will not be saved between page reloads.';
           setup.appendChild(storageWarning);
         }
@@ -1012,12 +1028,10 @@
         state.entries.forEach(function (entry, idx) {
           var item = document.createElement('div');
           item.className = 'sidebar-item';
-          if (state.completedLines.has(idx)) {
-            if (state.needsRerecord.has(idx)) {
-              item.classList.add('needs-rerecord');
-            } else {
-              item.classList.add('completed');
-            }
+          if (state.needsRerecord.has(idx)) {
+            item.classList.add('needs-rerecord');
+          } else if (state.completedLines.has(idx)) {
+            item.classList.add('completed');
           }
           if (idx === state.currentIndex) {
             item.classList.add('active');
@@ -1030,6 +1044,10 @@
           });
           sidebar.appendChild(item);
         });
+
+        // Update progress bar fill
+        var fill = document.querySelector('.progress-bar__fill');
+        if (fill) fill.style.width = (state.completedLines.size / state.entries.length * 100) + '%';
 
         // Auto-scroll to keep the active item visible
         var activeItem = sidebar.querySelector('.sidebar-item.active');
@@ -1054,14 +1072,18 @@
         var entry = state.entries[state.currentIndex];
         var total = state.entries.length;
 
-        // Recording state: red background tint
+        // Recording state: warm red background tint
         if (state.recordingState === 'recording') {
-          mainArea.style.backgroundColor = 'rgba(229, 57, 53, 0.07)';
+          mainArea.style.backgroundColor = 'rgba(196, 92, 92, 0.07)';
           mainArea.style.transition = 'background-color 0.2s ease';
         } else {
           mainArea.style.backgroundColor = '';
           mainArea.style.transition = 'background-color 0.2s ease';
         }
+
+        // Update progress bar fill
+        var fill = document.querySelector('.progress-bar__fill');
+        if (fill) fill.style.width = (state.completedLines.size / state.entries.length * 100) + '%';
 
         // Progress indicator
         var progress = document.createElement('p');
@@ -1095,12 +1117,35 @@
           dot.className = 'recording-dot';
           recordPrompt.appendChild(dot);
           recordPrompt.appendChild(document.createTextNode('Recording…'));
+          var timer = document.createElement('span');
+          timer.className = 'recording-timer';
+          timer.textContent = '0:00';
+          recordPrompt.appendChild(timer);
+        } else if (state.recordingState === 'saving') {
+          recordPrompt.textContent = 'Saving recording…';
         } else if (state.recordingState === 'review') {
           recordPrompt.textContent = 'Recording complete — listen, keep, or retry:';
         } else {
           recordPrompt.textContent = 'Hold SPACE to record';
         }
         mainArea.appendChild(recordPrompt);
+
+        // Level meter (shown while recording)
+        if (state.recordingState === 'recording') {
+          var levelMeter = document.createElement('div');
+          levelMeter.className = 'level-meter';
+          var levelFill = document.createElement('div');
+          levelFill.className = 'level-meter__fill';
+          levelMeter.appendChild(levelFill);
+          mainArea.appendChild(levelMeter);
+        }
+
+        if (state.uiMessage) {
+          var statusMessage = document.createElement('p');
+          statusMessage.className = 'status-message';
+          statusMessage.textContent = state.uiMessage;
+          mainArea.appendChild(statusMessage);
+        }
 
         // Review action buttons
         if (state.recordingState === 'review') {
@@ -1161,33 +1206,55 @@
         var screen = document.createElement('div');
         screen.className = 'recording-screen';
 
+        // Progress bar (full width, at top)
+        var progressBar = document.createElement('div');
+        progressBar.className = 'progress-bar';
+        var progressFill = document.createElement('div');
+        progressFill.className = 'progress-bar__fill';
+        progressBar.appendChild(progressFill);
+        screen.appendChild(progressBar);
+
+        // Panels row (sidebar + main)
+        var panels = document.createElement('div');
+        panels.className = 'recording-screen__panels';
+
         // Sidebar
         var sidebar = document.createElement('div');
         sidebar.className = 'sidebar';
-        screen.appendChild(sidebar);
+        panels.appendChild(sidebar);
+
+        var mainPanel = document.createElement('div');
+        mainPanel.className = 'main-panel';
+
+        var zipControls = document.createElement('div');
+        zipControls.className = 'zip-controls';
+        mainPanel.appendChild(zipControls);
 
         // Main area
         var mainArea = document.createElement('div');
         mainArea.className = 'main-area';
-        screen.appendChild(mainArea);
+        mainPanel.appendChild(mainArea);
+        panels.appendChild(mainPanel);
+        screen.appendChild(panels);
 
         app.appendChild(screen);
 
         // Populate both panels
         renderSidebar();
         renderMainArea();
+        updateZipButton();
 
         // Zip mode reload warning notice bar
         if (!state.browser.canDirectSave && state.storageAvailable) {
           var noticeBar = document.createElement('div');
           noticeBar.id = 'zip-reload-notice';
-          noticeBar.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#6b4a0e;color:#fcd770;font-size:0.85rem;padding:0.55rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:50;';
+          noticeBar.style.cssText = 'position:fixed;top:0;left:0;right:0;background:var(--warning);color:var(--warning-text);font-size:0.85rem;padding:0.55rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:50;font-family:var(--font-ui);';
           var noticeText = document.createElement('span');
           noticeText.textContent = 'Your browser uses zip download mode. If you reload the page, you\u2019ll need to re-record any lines from this session. Use \u2018Download All\u2019 frequently to save your progress.';
           noticeBar.appendChild(noticeText);
           var dismissBtn = document.createElement('button');
           dismissBtn.type = 'button';
-          dismissBtn.style.cssText = 'background:none;border:none;color:#fcd770;cursor:pointer;font-size:1rem;padding:0 0.25rem;flex-shrink:0;';
+          dismissBtn.style.cssText = 'background:none;border:none;color:var(--warning-text);cursor:pointer;font-size:1rem;padding:0 0.25rem;flex-shrink:0;';
           dismissBtn.textContent = '\u00D7';
           dismissBtn.setAttribute('aria-label', 'Dismiss notice');
           dismissBtn.addEventListener('click', function () {
@@ -1210,7 +1277,7 @@
        */
       function showMicError(msg) {
         var overlay = document.createElement('div');
-        overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,17,23,0.97);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:2rem;';
+        overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(28,25,23,0.97);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:2rem;';
 
         var icon = document.createElement('div');
         icon.style.cssText = 'font-size:3rem;margin-bottom:1.5rem;';
@@ -1218,12 +1285,12 @@
         overlay.appendChild(icon);
 
         var heading = document.createElement('h2');
-        heading.style.cssText = 'color:#f87171;font-size:1.25rem;font-weight:700;margin-bottom:1rem;text-align:center;';
+        heading.style.cssText = 'color:var(--danger);font-size:1.25rem;font-weight:700;margin-bottom:1rem;text-align:center;font-family:var(--font-ui);';
         heading.textContent = 'Microphone Error';
         overlay.appendChild(heading);
 
         var msgEl = document.createElement('p');
-        msgEl.style.cssText = 'color:#e8eaf0;font-size:0.95rem;line-height:1.6;max-width:480px;text-align:center;';
+        msgEl.style.cssText = 'color:var(--text-primary);font-size:0.95rem;line-height:1.6;max-width:480px;text-align:center;font-family:var(--font-ui);';
         msgEl.textContent = msg;
         overlay.appendChild(msgEl);
 
@@ -1240,6 +1307,7 @@
             audio: { sampleRate: 44100, channelCount: 1, echoCancellation: false }
           });
           state.audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 44100 });
+          setUiMessage('');
         } catch (err) {
           var msg = 'Microphone error: ' + err.message;
           if (err.name === 'NotAllowedError') msg = 'Microphone access denied. Please allow microphone access in your browser settings and reload.';
@@ -1256,10 +1324,32 @@
       var processorNode = null;
       var sourceNode = null;
 
+      function updateLevelMeter() {
+        if (!isRecording || !state.analyser) return;
+        var data = new Uint8Array(state.analyser.fftSize);
+        state.analyser.getByteTimeDomainData(data);
+        var sum = 0;
+        for (var i = 0; i < data.length; i++) {
+          var v = (data[i] - 128) / 128;
+          sum += v * v;
+        }
+        var rms = Math.sqrt(sum / data.length);
+        var level = Math.min(1, rms * 3);
+        var meter = document.querySelector('.level-meter__fill');
+        if (meter) meter.style.width = (level * 100) + '%';
+        state.levelAnimFrame = requestAnimationFrame(updateLevelMeter);
+      }
+
       function startRecording() {
+        if (!state.audioCtx || !state.micStream) {
+          setUiMessage('Microphone not ready yet. Allow access and wait a moment before recording.');
+          renderMainArea();
+          return;
+        }
         recordingChunks = [];
         isRecording = true;
         state.recordingState = 'recording';
+        setUiMessage('');
         sourceNode = state.audioCtx.createMediaStreamSource(state.micStream);
         processorNode = state.audioCtx.createScriptProcessor(4096, 1, 1);
         processorNode.onaudioprocess = function(e) {
@@ -1270,11 +1360,31 @@
         };
         sourceNode.connect(processorNode);
         processorNode.connect(state.audioCtx.destination);
+
+        // Analyser for level meter
+        state.analyser = state.audioCtx.createAnalyser();
+        state.analyser.fftSize = 256;
+        sourceNode.connect(state.analyser);
+        state.levelAnimFrame = requestAnimationFrame(updateLevelMeter);
+
+        // Recording duration timer
+        state.recordingStartTime = Date.now();
+        state.recordingTimer = setInterval(function() {
+          var elapsed = Math.floor((Date.now() - state.recordingStartTime) / 1000);
+          var mins = Math.floor(elapsed / 60);
+          var secs = elapsed % 60;
+          var timerEl = document.querySelector('.recording-timer');
+          if (timerEl) timerEl.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
+        }, 250);
+
         renderMainArea();
       }
 
       function stopRecording() {
         isRecording = false;
+        if (state.recordingTimer) { clearInterval(state.recordingTimer); state.recordingTimer = null; }
+        if (state.levelAnimFrame) { cancelAnimationFrame(state.levelAnimFrame); state.levelAnimFrame = null; }
+        if (state.analyser) { state.analyser.disconnect(); state.analyser = null; }
         if (processorNode) {
           processorNode.disconnect();
           processorNode = null;
@@ -1345,12 +1455,12 @@
 
       // ── File Saving ───────────────────────────────────────────────────────────
 
-      function saveRecording(index, samples) {
+      async function saveRecording(index, samples) {
         if (state.browser.canDirectSave && state.dirHandle) {
-          saveRecordingDirect(index, samples);
-        } else {
-          saveRecordingZip(index, samples);
+          return saveRecordingDirect(index, samples);
         }
+        saveRecordingZip(index, samples);
+        return true;
       }
 
       async function saveRecordingDirect(index, samples) {
@@ -1361,8 +1471,10 @@
           var writable = await fileHandle.createWritable();
           await writable.write(wavBuffer);
           await writable.close();
+          return true;
         } catch (err) {
           console.error('Failed to save file:', err);
+          return false;
         }
       }
 
@@ -1487,14 +1599,19 @@
 
       function updateZipButton() {
         if (state.browser.canDirectSave) return;
+        var controls = document.querySelector('.zip-controls');
+        if (!controls) return;
         var existing = document.getElementById('zip-download-btn');
+        if (state.zipEntries.size === 0) {
+          if (existing) existing.remove();
+          return;
+        }
         if (!existing) {
           existing = document.createElement('button');
           existing.id = 'zip-download-btn';
           existing.className = 'btn-zip-download';
           existing.addEventListener('click', downloadZip);
-          var mainArea = document.querySelector('.main-area');
-          if (mainArea) mainArea.insertBefore(existing, mainArea.firstChild);
+          controls.appendChild(existing);
         }
         existing.textContent = 'Download All (' + state.zipEntries.size + ' files)';
       }
@@ -1626,6 +1743,7 @@
         state.modalOpen = false;
         state.playbackAudio = null;
         state.browser = null;
+        setUiMessage('');
 
         // Clear #app safely
         var app = document.getElementById('app');
@@ -1655,12 +1773,23 @@
         state.playbackAudio.play();
       }
 
-      function keepRecording() {
-        saveRecording(state.currentIndex, state.currentRecording);
+      async function keepRecording() {
+        if (state.recordingState !== 'review' || !state.currentRecording) return;
+        state.recordingState = 'saving';
+        setUiMessage('');
+        renderMainArea();
+        var saveSucceeded = await saveRecording(state.currentIndex, state.currentRecording);
+        if (!saveSucceeded) {
+          state.recordingState = 'review';
+          setUiMessage('Saving failed. Check the destination folder and try again.');
+          renderMainArea();
+          return;
+        }
         state.completedLines.add(state.currentIndex);
         state.needsRerecord.delete(state.currentIndex);
         state.currentRecording = null;
         state.recordingState = 'idle';
+        setUiMessage('');
         advanceToNext();
         saveSession();
         renderMainArea();
@@ -1670,6 +1799,7 @@
       function retryRecording() {
         state.currentRecording = null;
         state.recordingState = 'idle';
+        setUiMessage('');
         renderMainArea();
       }
 
