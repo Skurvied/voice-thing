@@ -172,6 +172,90 @@
 
       var SVG_NS = 'http://www.w3.org/2000/svg';
 
+      // ── App state ─────────────────────────────────────────────────────────────
+
+      var state = {
+        entries: [],
+        scriptName: '',
+        currentIndex: 0,
+        completedLines: new Set(),
+        screen: 'landing'
+      };
+
+      // ── Script parser ─────────────────────────────────────────────────────────
+
+      /**
+       * Parse a pipe-delimited script file.
+       * Line 0 is treated as a header and skipped.
+       * Each subsequent non-empty line must contain at least one `|`.
+       * @param {string} rawText
+       * @returns {Array<{filename: string, text: string, displayName: string}>}
+       */
+      function parseScript(rawText) {
+        var lines = rawText.split('\n').filter(function(l) { return l.trim(); });
+        if (lines.length < 2) throw new Error('Script file is empty or has only a header row.');
+
+        var entries = [];
+        var seenFilenames = {};
+        var duplicates = [];
+
+        for (var i = 1; i < lines.length; i++) {
+          var pipeIdx = lines[i].indexOf('|');
+          if (pipeIdx === -1) continue;
+          var filename = lines[i].slice(0, pipeIdx).trim();
+          var text = lines[i].slice(pipeIdx + 1).trim();
+          if (!filename || !text) continue;
+
+          if (seenFilenames[filename]) {
+            duplicates.push(filename);
+          } else {
+            seenFilenames[filename] = true;
+          }
+
+          var displayName = text
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+/g, '_')
+            .slice(0, 60);
+
+          entries.push({ filename: filename, text: text, displayName: displayName });
+        }
+
+        if (duplicates.length > 0) {
+          throw new Error('Duplicate filenames found: ' + duplicates.join(', '));
+        }
+
+        return entries;
+      }
+
+      // ── UI helpers ────────────────────────────────────────────────────────────
+
+      /**
+       * Display an error message on the landing screen.
+       * Finds or creates a dedicated error paragraph and sets its text safely.
+       * @param {string} msg
+       */
+      function showError(msg) {
+        var errorEl = document.getElementById('landing-error');
+        if (!errorEl) {
+          errorEl = document.createElement('p');
+          errorEl.id = 'landing-error';
+          errorEl.style.cssText = 'color:#f87171;font-size:0.875rem;margin-top:0.5rem;';
+          var landing = document.querySelector('.landing');
+          if (landing) {
+            landing.appendChild(errorEl);
+          }
+        }
+        errorEl.textContent = msg;
+      }
+
+      /**
+       * Placeholder — will be implemented in Task 3.
+       */
+      function showSetupScreen() {
+        console.log('showSetupScreen called — not yet implemented (Task 3).');
+      }
+
       // ── SVG helpers ──────────────────────────────────────────────────────────
 
       /**
@@ -299,6 +383,28 @@
 
         loadBtn.addEventListener('click', function () {
           fileInput.click();
+        });
+
+        // Wire up file parsing on selection
+        fileInput.addEventListener('change', function () {
+          var file = fileInput.files && fileInput.files[0];
+          if (!file) return;
+
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            try {
+              var entries = parseScript(e.target.result);
+              state.entries = entries;
+              state.scriptName = file.name;
+              showSetupScreen();
+            } catch (err) {
+              showError(err.message);
+            }
+          };
+          reader.onerror = function () {
+            showError('Failed to read file. Please try again.');
+          };
+          reader.readAsText(file);
         });
 
         landing.appendChild(loadBtn);
