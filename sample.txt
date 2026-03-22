@@ -1,0 +1,601 @@
+filename | text
+clip_0001.wav| There was once a merchant who employed many carpenters and masons to build a temple in his garden.
+clip_0002.wav| Regularly, they would start work in the morning, and take a break for the mid-day meals, and return to resume work till evening.
+clip_0003.wav| One day, a group of monkeys arrived at the site of the building and watched the workers leaving for their mid-day meals.
+clip_0004.wav| One of the carpenters was sawing a huge log of wood.
+clip_0005.wav| Since it was only half-done he placed a wedge in between to prevent the log from closing up.
+clip_0006.wav| He then went off along with the other workers for his meal.
+clip_0007.wav| When all the workers were gone, the monkeys came down from the trees and started jumping around the site, and playing with the instruments.
+clip_0008.wav| There was one monkey, who got curious about the wedge placed between the log.
+clip_0009.wav| He sat down on the log, and having placed himself in between the half-split log, caught hold of the wedge and started pulling at it.
+clip_0010.wav| All of a sudden, the wedge came out.
+clip_0011.wav| As a result, the half-split log closed in and the monkey got caught in the gap of the log.
+clip_0012.wav| As was his destiny, he was severely wounded.
+clip_0013.wav| The wise indeed say, One, who interferes in other's work, surely comes to grief.
+clip_0014.wav| One day, a jackal called Gomaya was very hungry, and was wandering about in search of food.
+clip_0015.wav| After some time, he wandered out of the jungle he lived in, and reached a deserted battlefield.
+clip_0016.wav| In this deserted battlefield, a battle was fought recently.
+clip_0017.wav| The fighting armies had left behind a drum, which was lying near a tree.
+clip_0018.wav| As strong winds blew, the branches of the tree got rubbed against the drum.
+clip_0019.wav| This made a strange noise.
+clip_0020.wav| When the jackal heard this sound, he got very frightened and thought of running away.
+clip_0021.wav| If I cannot flee from here before I am seen by the person making all this noise, I will be in trouble.
+clip_0022.wav| As he was about to run away, he had a second thought.
+clip_0023.wav| It is unwise to run away from something without knowing.
+clip_0024.wav| Instead, I must be careful in finding out the source of this noise.
+clip_0025.wav| He took the courage to creep forward cautiously.
+clip_0026.wav| When he saw the drum, he realized that it was only the wind that was causing all the noise.
+clip_0027.wav| He continued his search for food, and near the drum he found sufficient food and water.
+clip_0028.wav| The wise indeed say, Only the brave succeed in life.
+clip_0029.wav| In a city called Vardhamana, lived a very efficient and prosperous merchant.
+clip_0030.wav| The king was aware of his abilities, and therefore made him the administrator of the kingdom.
+clip_0031.wav| With his efficient and intelligent ways, he kept common man very happy, and at the same time he impressed the king on the other side.
+clip_0032.wav| Such a person, who can keep everybody happy, is rarely found.
+clip_0033.wav| Later, there came a time that the merchant's daughter was getting married.
+clip_0034.wav| He arranged for a lavish reception.
+clip_0035.wav| The merchant not only invited the king and the queen, who obliged by attending, but he also invited the entire royal household and all respected people of the kingdom.
+clip_0036.wav| During the reception, he ensured to provide his guests with the best of treatments.
+clip_0037.wav| He gave out gifts to guests to show them respect for attending to his invitation.
+clip_0038.wav| A servant of the royal household, who used to sweep the palace, was not invited but attended the reception.
+clip_0039.wav| He took a seat which was reserved for royal nobles, not meant for common invitees.
+clip_0040.wav| This made the merchant very angry.
+clip_0041.wav| He caught him by the neck and ordered his servants to have him thrown out.
+clip_0042.wav| The royal servant felt very insulted, and could not sleep all night.
+clip_0043.wav| He thought, If I can have the king to disfavour this merchant, I will have my revenge.
+clip_0044.wav| But what can I, a common fellow, do to harm a powerful person as him.
+clip_0045.wav| Thinking such, he suddenly had a plan.
+clip_0046.wav| Several days later, the servant was sweeping the floor near the king's bed early in the morning.
+clip_0047.wav| He observed that that the king was still in bed, half awake.
+clip_0048.wav| The servant started mumbling, Good heavens! The merchant has become so carefree now that he dared to embrace the queen!
+clip_0049.wav| When the king heard this lying in his bed, he jumped up and asked the servant, Is it true? Have you seen the merchant embrace my queen yourself?
+clip_0050.wav| The servant at once fell at the king's feet, O Master, I was gambling all night.
+clip_0051.wav| I feel drowsy for I didn't sleep last night.
+clip_0052.wav| I don't know what I have been mumbling, but I said anything improper, please forgive me.
+clip_0053.wav| The king spoke no more, but the servant knew he had sowed the seed of distrust.
+clip_0054.wav| The king thought, It can be true! The servant moves about the palace freely, and so does the merchant.
+clip_0055.wav| It is possible that the servant has seen something.
+clip_0056.wav| The king was troubled with jealousy.
+clip_0057.wav| From that day onwards, he withdrew his favours from the merchant and even forbade him to enter the palace.
+clip_0058.wav| One day, when the merchant was entering the gateway to the palace, he was stopped by the guards.
+clip_0059.wav| The merchant was surprised due to this sudden change in the king's attitude.
+clip_0060.wav| The servant was nearby, and mocking shouted at the guards, Ho Guards! That merchant is favoured by the king, He is a powerful person.
+clip_0061.wav| He can have people arrested or released or even thrown out, just like he had me thrown out of his daughter's reception.
+clip_0062.wav| Beware, for you may suffer the same fate.
+clip_0063.wav| On hearing this, the merchant understood that the servant has caused all this trouble somehow.
+clip_0064.wav| He felt dejected, and returned home upset over the incident.
+clip_0065.wav| He gave everything a second thought, and then he invited the royal servant to his house.
+clip_0066.wav| He treated the servant with utmost respect, and flattered him with gifts and garments.
+clip_0067.wav| He said kindly, O friend, that day I did not have you thrown out due to anger, but it was improper of you to occupy the seat reserved for the royal nobles.
+clip_0068.wav| They felt insulted, and out of compulsion I had to throw you out. Please forgive me.
+clip_0069.wav| The servant was already flattered with all the gifts, and he was full of joy, Sir, I forgive you. You have not only expressed your regrets, but also honoured me with utmost respect.
+clip_0070.wav| He ensured the merchant, I will prove you how clever I am.
+clip_0071.wav| I will have the king favourable towards you, like he was before.
+clip_0072.wav| The servant went back home.
+clip_0073.wav| Early next morning, when he started sweeping the floors of the palace, he waited till when the king was lying half-awake.
+clip_0074.wav| When the opportunity came, he started sweeping around his bed and started mumbling, Our king is crazy, he eats cucumber in the lavatory!
+clip_0075.wav| On hearing this, the king was taken aback.
+clip_0076.wav| He got up angrily and shouted at the servant, What nonsense do you talk about? Had you not been by royal servant, I would have punished you dearly.
+clip_0077.wav| Have you ever seen me doing such thing yourself?
+clip_0078.wav| Once again the servant fell on his knees and prayed, O Master, please forgive me if I said something improper.
+clip_0079.wav| The king thought to himself, I have never eaten a cucumber in the lavatory.
+clip_0080.wav| What he mumbled about me is ridiculously false.
+clip_0081.wav| Surely then, what he mumbled about my trusted merchant the other morning must have been ridiculously false too.
+clip_0082.wav| It was improper of me to mistreat the merchant.
+clip_0083.wav| He wondered, After all he has been so efficient in the whole administrative system, that without him it has become slack.
+clip_0084.wav| Thus, having considered carefully, the king invited the merchant to the palace and flattered him with gifts, jewels and garments.
+clip_0085.wav| He re-appointed the merchant to his previously held position, and favoured his services as before.
+clip_0086.wav| The wise indeed say, One should treat one and all, even the lowest, with respect.
+clip_0087.wav| Once upon a time, there was a sage called Deva Sharma who lived in a temple in the outskirts of a town.
+clip_0088.wav| He was widely known and respected.
+clip_0089.wav| People would visit him, and offer him with gifts, food, money and garments to seek his blessings.
+clip_0090.wav| The gifts that he did not need for himself, he would sell off, and got rich on the proceeds.
+clip_0091.wav| And by nature, he trusted nobody.
+clip_0092.wav| So, he kept all his money in a bag which he carried under his arm all the time.
+clip_0093.wav| He would not part with the bag for a single moment.
+clip_0094.wav| One day, a swindler came across the sage, and he became sure that the bag this holy man was so possessive of, must surely contain a lot of treasure.
+clip_0095.wav| He planned on stealing the bag from the sage, but could not think of a way to do so.
+clip_0096.wav| He thought, I cannot make a hole in the temple wall, or jump over the high gates.
+clip_0097.wav| But I can charm him with sweet words to accept me as his disciple.
+clip_0098.wav| He wondered, If I can stay with him as a disciple, I can win his confidence. When I get an opportunity, I will rob him, and leave this place.
+clip_0099.wav| Having planned so, the swindler approached the holy man with reverence, Om Namah Shivaya! I bow before Lord Shiva, the God of Destruction.
+clip_0100.wav| With these words, he fell on the sage's feet and said, O Guruji, Please guide me to the right path of life.
+clip_0101.wav| I am fed-up with life, and want to seek peace.
+clip_0102.wav| The sage kindly replied, My son, I will surely guide you.
+clip_0103.wav| You are blessed because you have come to me to seek peace at this young age.
+clip_0104.wav| This was the opportunity the swindler was seeking, and he at once touched the feet of the sage for blessings, O Guruji, please accept me as your disciple. I will do whatever you ask me to do.
+clip_0105.wav| The sage accepted the swindler as his disciple, but only on a condition.
+clip_0106.wav| He said, A holy man as me is recommended to spend the night alone without company.
+clip_0107.wav| This helps me to meditate also.
+clip_0108.wav| So, you will not be allowed to enter the temple at night.
+clip_0109.wav| You will sleep in a hut at the gate of the temple.
+clip_0110.wav| The swindler agreed, I shall willingly serve your wishes in every way that you ask me to.
+clip_0111.wav| In the evening, the sage initiated the rituals and formally took the swindler as his disciple.
+clip_0112.wav| The swindler in return proved himself an obedient disciple.
+clip_0113.wav| He messaged his hands and feet, washed his feet and helped him with all the rituals along with cleaning the temple.
+clip_0114.wav| Although the sage was happy with his disciple, the swindler could not gain enough confidence for the sage to part with his bag when he was around.
+clip_0115.wav| As days passed by, the swindler started getting frustrated,
+clip_0116.wav| He does not trust me enough to leave the bag with me.
+clip_0117.wav| I can gain access to the bag if I kill him with a knife or feed him with poison.
+clip_0118.wav| When he was thinking all this, the swindler saw a young boy visit the sage.
+clip_0119.wav| He was the son of one of the sage's followers.
+clip_0120.wav| He invited the sage, O Guruji, I have come here personally to invite you to our house for the ceremony of sacred thread.
+clip_0121.wav| Please accept the invitation to sanctify the ceremony with your kind presence.
+clip_0122.wav| The sage accepted the invitation, and after some time started off for the town with the swindler.
+clip_0123.wav| On the way, they came across a river, where the sage thought of relieving himself.
+clip_0124.wav| He folded the bagful of money in his robe.
+clip_0125.wav| He asked his disciple to look after it, My child, Look after the robe until I return.
+clip_0126.wav| This was the opportunity that the swindler was seeking all the while.
+clip_0127.wav| As soon as the sage went behind the bushes, the swindler ran away with the bagful of money.
+clip_0128.wav| When the sage returned, he did not find the disciple around but found his robe lying on the ground.
+clip_0129.wav| Shocked and anxious, he peered inside only to find his bag of money was gone.
+clip_0130.wav| At once he knew what had happened, and began to shout, Oh! Where are you, you rascal. You have robbed me.
+clip_0131.wav| The sage then started trailing the swindler's footsteps, but he reached town.
+clip_0132.wav| He knew he will not be able to catch hold of him.
+clip_0133.wav| He stayed the night in town to return empty-handed to his temple next morning.
+clip_0134.wav| The wise indeed say, Do not be taken in by the sweet words of a swindler.
+clip_0135.wav| One day while a sage was going through a jungle, he saw two golden rams fighting each other.
+clip_0136.wav| Even though both were wounded, and blood was oozing out from their heads and bodies, they did not stop fighting and rammed at each other.
+clip_0137.wav| At the same time, a hungry jackal was passing by.
+clip_0138.wav| When he saw all the blood, he started licking the blood from the ground without caring for the fighting rams.
+clip_0139.wav| Watching all this, the sage thought to himself, This jackal is a fool as it has become greedy by the smell of blood.
+clip_0140.wav| If he comes between the fighting rams, it will get rammed and get hurt himself.
+clip_0141.wav| No sooner had the sage thought of it, the jackal craving for more blood came nearer to the fighting rams, and got caught in the middle of their fight.
+clip_0142.wav| Both the rams rammed into him by mistake.
+clip_0143.wav| He got hit on his head, and fell down because he was severely wounded.
+clip_0144.wav| The wise indeed say, Do not close your eyes to the impending danger due to greed.
+clip_0145.wav| There was a big banyan tree, where two crows - husband and wife, had prepared a nice nest and made it their home.
+clip_0146.wav| In the hollow of the same tree, lived a black cobra.
+clip_0147.wav| The crows had a problem because the black cobra would climb up the tree and eat the newborns, whenever the female crow hatched her eggs.
+clip_0148.wav| They could do nothing to save them.
+clip_0149.wav| The crows went to a jackal, who lived in a nearby banyan tree, to seek his advice.
+clip_0150.wav| They narrated everything to him and requested his advice for them to get rid of their problem.
+clip_0151.wav| They said, O Friend, It has become dangerous to live here.
+clip_0152.wav| Please tell us how we can protect our children from being eaten up by the wicked black cobra.
+clip_0153.wav| The jackal replied, Please don't give up. Even powerful enemies can be overcome with the use of wit.
+clip_0154.wav| On hearing this, the crows requested, O Friend, please tell us how we can overcome and destroy this wicked cobra.
+clip_0155.wav| The jackal told them a plan, Fly into the capital of the kingdom, not far from here.
+clip_0156.wav| Visit the house of someone who is wealthy and careless at the same time.
+clip_0157.wav| Notice if something of value is lying around.
+clip_0158.wav| If you find so, pick it up when the servants are watching you.
+clip_0159.wav| He continued, You will need to fly slowly so that the servants can follow you. Return back to your tree and drop it in the hollow of the tree where the cobra lives. When the servants reach, they will kill the cobra when they see it.
+clip_0160.wav| The crows decided to follow the jackal's advice and flew off immediately according to his plan.
+clip_0161.wav| As they flew above the capital, the female crow noticed wealthy women swimming in a lake.
+clip_0162.wav| They had left gold and pearl necklaces on the banks of the lake, which were guarded by royal servants.
+clip_0163.wav| At once the female crow swooped down, and picked up a big necklace in her beak, and started flying slowly.
+clip_0164.wav| When the royal servants noticed her, they picked up sticks and stones, and started throwing at her, and ran to chase her.
+clip_0165.wav| As planned, she dropped the necklace in front of the hollow of the tree, where the black cobra was asleep.
+clip_0166.wav| She sat on one of the branches for the royal servants to notice.
+clip_0167.wav| When the royal servants arrived, the black cobra came out of the hollow of the tree to see what all the noise was about.
+clip_0168.wav| The black cobra confronted the king's servants with swelling hood, but the servants attacked the cobra with sticks and stones to recover the necklace.
+clip_0169.wav| They killed the wicked cobra, and returned with the necklace.
+clip_0170.wav| And the crows, having gotten rid of the cobra, lived happily.
+clip_0171.wav| The wise indeed say, Even a very powerful enemy can be destroyed through deceit.
+clip_0172.wav| A heron lived near a big lake, which was full of fishes and other water creatures.
+clip_0173.wav| The heron had grown so old, that he could not catch fishes from the lake anymore.
+clip_0174.wav| He became lean and weak with every passing day due to lack of food.
+clip_0175.wav| Unable to bear the hunger anymore, he hit upon a plan.
+clip_0176.wav| As planned, he sat at the edge of the lake for everybody to see, and began crying.
+clip_0177.wav| On seeing this, a crab took pity on him and went near, Uncle, What is the matter? Why are you crying instead to catching fishes?
+clip_0178.wav| Continuing to pretend, the heron replied, My child, I would not touch any fish anymore. I have decided to renounce all worldly matters, and vowed to undertake a fast unto death.
+clip_0179.wav| The crab asked, If you have indeed renounced worldly matters, why is it that you cry?
+clip_0180.wav| The heron explained, My child, I have been in this lake from my birth. I have grown here.
+clip_0181.wav| And now that I have grown so old that I hear that this lake will dry up as there will be no rains for the next twelve years.
+clip_0182.wav| The crab was surprised to hear this, Uncle, please tell me if it is true. Please tell me where you have heard such thing.
+clip_0183.wav| The heron replied, I have heard the news from a wise astrologer that there will be no rains for the next twelve years.
+clip_0184.wav| You see, there is already not much water in the lake.
+clip_0185.wav| And very soon, due to lack of rains, the lake will dry up completely very soon.
+clip_0186.wav| The crab was taken aback by the news of what is to befall on them, and went to tell this to the other water creatures.
+clip_0187.wav| On hearing this piece of news, everybody started to panic.
+clip_0188.wav| They believed the heron, as he was not trying to catch any fish at all.
+clip_0189.wav| So, they met the heron to seek advice, Please guide us to save us from this disaster
+clip_0190.wav| The heron said, There is indeed a lake not far from here. It is full of water, and beautifully covered with lotus flowers.
+clip_0191.wav| There is so much water in the lake, that it would not dry even if it did not rain for twenty four years.
+clip_0192.wav| I can take you there, if you can ride on my back.
+clip_0193.wav| He had already gained their confidence.
+clip_0194.wav| So, they gathered around him and requested to carry them one at a time to the other lake and save them.
+clip_0195.wav| The wicked heron had succeeded in his plan.
+clip_0196.wav| Every day, he would carry on of them on his back pretending to take them to the other lake.
+clip_0197.wav| After flying a little away from the lake, he would smash them against a rock and eat them up.
+clip_0198.wav| He would then return after some time to the lake and relate false messages how they are happy in the other lake.
+clip_0199.wav| This happened for many days, when the crab said to the heron, Uncle, you take others to the lake but it is me who is your first friend.
+clip_0200.wav| Please take me to the other lake to save my life.
+clip_0201.wav| The heron was happy to hear this. He thought to himself, Having a fish everyday has become monotonous. It is good that I will get to eat a crab today, for a change.
+clip_0202.wav| Having thus decided, the heron started carrying the crab to the same rock.
+clip_0203.wav| The crab looked down from above and saw the heap of bones and skeletons.
+clip_0204.wav| At once, the crab understood what the heron was up to.
+clip_0205.wav| He remained calm, and said to the heron, Uncle, the lake seems far and I am quite heavy.
+clip_0206.wav| You must be getting tired, let us stop for some rest.
+clip_0207.wav| The heron was confident that there was no way the crab can escape from him in the sky.
+clip_0208.wav| The heron replied, There is no lake for real.
+clip_0209.wav| This trip is for my own meal.
+clip_0210.wav| As I do every day, I will smash you against a rock and make a meal out of you.
+clip_0211.wav| When the heron confessed the truth, the crab got hold of the heron's neck with its strong claws, and strangled him to death.
+clip_0212.wav| The crab laughed at himself that he had saved himself and the other water creatures from the trick played by the heron.
+clip_0213.wav| He dragged the heron back to the lake.
+clip_0214.wav| The other water creatures in the lake were surprised to see him back.
+clip_0215.wav| They became curious, and asked all sort of questions.
+clip_0216.wav| The crab laughed and replied, We were being made fools! The heron was an imposter and what he told about the lake drying up was all false.
+clip_0217.wav| He was taking one of us every day for his meal in a rock not far from here.
+clip_0218.wav| He proudly said, I understood what he was up to, and have killed the trickster.
+clip_0219.wav| There is no need to worry, for we are safe in this lake.
+clip_0220.wav| It is not going to dry up at all.
+clip_0221.wav| The wise indeed say, When things go wrong, use your wit to overcome the situation.
+clip_0222.wav| Mandavisarpini was a white flea.
+clip_0223.wav| She lived in the folds of the exquisite white silk sheet that covered the bed of a king in a certain country.
+clip_0224.wav| She fed on the king's blood without anybody noticing, and was happy to spend her days.
+clip_0225.wav| One day, a bug managed to enter the beautifully decorated bedroom of the king.
+clip_0226.wav| When the flea saw him, she warned, O Bug, what are you doing in the king's bedroom. Leave at once before you get caught!
+clip_0227.wav| The bug replied, Madam, even if I were a good-for-nothing bug, that is no way to treat a guest.
+clip_0228.wav| One should welcome a guest with humble words, sweet behaviour and offer refreshments.
+clip_0229.wav| The bug continued, I have fed myself with all types of blood, but never have I had the pleasure of the blood of a king.
+clip_0230.wav| It must be very sweet, for the king eats the choicest of food.
+clip_0231.wav| I would love to taste the king's blood, if you permit.
+clip_0232.wav| The flea was taken aback, O Bug, you have a nasty bite, like a sharp needle.
+clip_0233.wav| Besides, I feed on the king's blood only when he is deep into his sleep.
+clip_0234.wav| I can permit you to feed on the king's blood only if you promise to wait till he is asleep.
+clip_0235.wav| The bug agreed, I promise to wait till the king is asleep, and only after you have fed yourself, will I feed myself on his blood.
+clip_0236.wav| Soon after they decided on such terms, the king came to his bedroom and lay down to sleep.
+clip_0237.wav| The bug could not control himself, and decided to take a tiny bite of the king, without waiting.
+clip_0238.wav| As the king was yet to fall asleep, he jumped at the sharp bite of the bug.
+clip_0239.wav| The king shouted at his servants, Hey, there is something in my bed that has bitten me.
+clip_0240.wav| Look for it, as I have already been bitten.
+clip_0241.wav| On hearing this, the bug quickly hid himself in a corner of the bed, before the servants could start searching for him.
+clip_0242.wav| However, the servants scrutinized the entire bed, sheet by sheet, and found the flea between the folds.
+clip_0243.wav| They killed her at once, and the king went to sleep without anymore worries.
+clip_0244.wav| The wise indeed say, The false promises of friends as well as strangers have no value. You end up paying for it.
+clip_0245.wav| There was once a jungle that was ruled by a lion called Madotkata, who had a leopard, a jackal and a crow at his service, along with other animals.
+clip_0246.wav| As they did regularly, they were wandering about the jungle one day, when the lion saw a camel at a distance.
+clip_0247.wav| This camel had separated from its caravan and was feeding itself on the green grass of the jungle.
+clip_0248.wav| The lion took a fancy on this animal that he had not seen before, Let us go and ask this extraordinary animal, where he comes from.
+clip_0249.wav| The crow, who flies to far-off places was aware and replied, Master, it is called a camel and this animal lives in villages.
+clip_0250.wav| The flesh of this animal tastes good, let us kill it and eat it.
+clip_0251.wav| But the lion disagreed, He does not belong to the jungle, so he is our guest. I will not kill it.
+clip_0252.wav| Please go and assure him that no harm will be done, and bring him to me.
+clip_0253.wav| As per the lion's instruction, they went to the camel and assured him that they were to bring it to the lion.
+clip_0254.wav| They won its confidence, and they brought the camel to the lion.
+clip_0255.wav| The camel stood before the lion and bowed.
+clip_0256.wav| He also narrated how he had gotten separated from his caravan and how he had reached the jungle.
+clip_0257.wav| On hearing this, the lion said, Oh Camel, if you return to the village you will be made a beast to carry burden again.
+clip_0258.wav| Stay in the jungle under my kingdom instead.
+clip_0259.wav| You can feast on the abundant green grass of the jungle without any fear.
+clip_0260.wav| The camel accepted the offer, and they began to live together in peace.
+clip_0261.wav| Later one day, the lion got severely wounded in a fight with a mad elephant.
+clip_0262.wav| Such were his injuries that he could not take a few steps, let alone go out of his for hunting.
+clip_0263.wav| Due to lack of food, the lion became weaker.
+clip_0264.wav| The animals who served him were also starving since they were dependent on the lion for their food.
+clip_0265.wav| When the lion could not bear anymore, he called them and said, Go and find any animal that I can prey upon even in my weak condition.
+clip_0266.wav| This way I can provide food for you, and also for myself.
+clip_0267.wav| All the animals wandered about the jungle without any success to find such an animal.
+clip_0268.wav| On their way back, the jackal had a plan.
+clip_0269.wav| He said to the crow, There is no point wandering about the jungle when the food is right in front of us.
+clip_0270.wav| The camel can provide us with the food for all of us for a long time.
+clip_0271.wav| The crow replied, Indeed, what you say is correct.
+clip_0272.wav| But the master has assured the camel of his safety under his rule. He will refuse to kill him.
+clip_0273.wav| The jackal said, Leave that to me.
+clip_0274.wav| I will influence the master in a manner that he will agree to feast on the camel.
+clip_0275.wav| You wait till I return after a discussion with the lion.
+clip_0276.wav| The jackal met the lion and said, Master, we have been looking all around the jungle but could not find an animal for you.
+clip_0277.wav| All of us have not had food for so long that we can hardly walk properly.
+clip_0278.wav| Under this circumstance, if you agree to kill the camel, his flesh can provide food for all of us.
+clip_0279.wav| The lion disagreed, Shame on you! How can I kill the camel when he has my assurance that his life will be safe under my kingdom.
+clip_0280.wav| It is a sin to think likewise.
+clip_0281.wav| But the jackal continued, Master, it would indeed be a sin to kill him after you have given him the assurance of his safety.
+clip_0282.wav| But if he offers himself as your food by himself, it would then not be a sin to kill him and accept his offer.
+clip_0283.wav| The jackal continued, What good are we, if we cannot be of our master's service in his time of need.
+clip_0284.wav| Please kill one of us for yourself, and the others to save the rest of us from dying of hunger.
+clip_0285.wav| The lion failed to justify the jackal and said, Please do what you think would be in the best for all of us.
+clip_0286.wav| After this, the jackal returned to the other animals and declared, Our master is sick and weak.
+clip_0287.wav| If something happened to him, there would not be anyone to protect us.
+clip_0288.wav| We have failed to get any animal after wandering throughout the jungle.
+clip_0289.wav| The only way now to repay our debts to our master would be to offer ourselves to him.
+clip_0290.wav| This way the rest of us would be saved from dying of hunger too.
+clip_0291.wav| As planned, all of them stood before the lion and bowed.
+clip_0292.wav| They informed the lion that they did not succeed to find any animal for their food.
+clip_0293.wav| The crow said, Master, we could not find an appropriate animal for your food.
+clip_0294.wav| So, I offer myself. Please eat me to save yourself from hunger.
+clip_0295.wav| The jackal interrupted, You are too small to provide flesh for the master.
+clip_0296.wav| Even if he agrees your offer, it will not be enough for his survival.
+clip_0297.wav| Indeed, you have proven your devotion and by offering yourself, you have already freed yourself from the debts of the master.
+clip_0298.wav| He turned to the lion and said, Please accept my offer instead.
+clip_0299.wav| The jackal stood humbly before the lion, Master, please eat me to save yourself from hunger.
+clip_0300.wav| If you accept my sacrifice, I will be honoured with a place in heaven.
+clip_0301.wav| On hearing this, the lion shook his head in refusal.
+clip_0302.wav| This way, the other animals started offering themselves, but the lion kept refusing to accept their offer.
+clip_0303.wav| The camel who was observing all this thought, All of them speak beautifully about offering themselves, but the master refuses to kill any of them.
+clip_0304.wav| I shall seek to impress the master in a similar fashion.
+clip_0305.wav| Thinking such, the camel said to the other animals, You have offered yourself, but the master cannot eat you because all of you are carnivores and belong to the same category as the lion himself.
+clip_0306.wav| Stand by, for I shall offer myself.
+clip_0307.wav| With this, the camel came forward and bowed before the lion.
+clip_0308.wav| He said, Master, you need not kill any of these animals. Please eat me instead.
+clip_0309.wav| I offer myself in return to your debts.
+clip_0310.wav| I shall find my way to the heaven, if you may please accept my offer.
+clip_0311.wav| No sooner had he made the offer, the other animals cheered.
+clip_0312.wav| Having already been influenced by the jackal, the lion jumped on him.
+clip_0313.wav| He was killed, and eaten by all the animals together.
+clip_0314.wav| The wise indeed say, Always be on guard when you are in the company of wicked people. Do not be taken in by their sweet words.
+clip_0315.wav| A pair of Tittibha birds, husband and wife lived on seashore.
+clip_0316.wav| The female Tittibha bird was expecting to lay eggs and raise a family.
+clip_0317.wav| When the time to lay eggs came, she asked her husband to look for a safe place to lay her eggs.
+clip_0318.wav| My dear, please look for some good and safe place for me to lay eggs as it is almost time for me to lay the them.
+clip_0319.wav| But the male Tittibha bird said, Dearest, where in the world could be a better place than this seashore? Please lay your eggs here.
+clip_0320.wav| She disagreed, The waves of sea on full moon nights are so high that they can drag even an elephant into it.
+clip_0321.wav| No, please find a place away from here.
+clip_0322.wav| The male Tittibha bird laughed and insisted, The Sea would not even dare to do any harm to my children! Do not fear unnecessarily and lay eggs here without any worries.
+clip_0323.wav| All the time, the Sea had been hearing this, and thought, From a small bird as he, such impudence is not expected.
+clip_0324.wav| I'll certainly take away his eggs to see what he does after that and teach him a lesson.
+clip_0325.wav| Within a few days, the female Tittibha bird laid her eggs in the seashore.
+clip_0326.wav| Shortly afterward, when the birds went away in search of food, the Sea started making waves.
+clip_0327.wav| The waves became higher and higher, till it swallowed the eggs into it.
+clip_0328.wav| The birds returned later to find the nest empty.
+clip_0329.wav| The female Tittibha bird started weeping bitterly, See for yourself that the waves of the sea has swallowed our eggs.
+clip_0330.wav| You are a fool not to listen to me when I asked you to find a safe place to lay eggs.
+clip_0331.wav| The male Tittibha bird continued its stupidity, Dear, don't you worry. I will prove to you how brilliant I am.
+clip_0332.wav| I will dry the sea, and force it to return our eggs.
+clip_0333.wav| The female Tittibha bird wondered, How can you dry this enormous sea?
+clip_0334.wav| The male Tittibha bird explained, Even small beings can overcome the strongest opponents if they are zealous.
+clip_0335.wav| And so, I plan to dry up the whole sea by sucking its water with my beak.
+clip_0336.wav| The wife argued, How can you suck the sea dry, when rivers like the Ganges and Indus, and hundreds of other rivers flow into it.
+clip_0337.wav| There is no good in this babbling.
+clip_0338.wav| While the husband argued, I'll work day and night to suck all the water from the sea with my beak, which is as solid as iron.
+clip_0339.wav| Man can succeed only after putting efforts.
+clip_0340.wav| The female Tittibha bird understood that she will not be able to convince him,
+clip_0341.wav| Dear, there is no point in arguing. If you want to conquer the sea, please call for your friends to help you.
+clip_0342.wav| The husband agreed, All right, I will do this with the help of my friends.
+clip_0343.wav| Now, all the friends of the male Tittibha bird were called and when they all gathered together, the male Tittibha bird explained his problem with the sea, and how it had insulted him, and how he plans to dry the sea to seek revenge.
+clip_0344.wav| All the birds, the swan, crane, peacock and other unanimously agreed that the task was impossible.
+clip_0345.wav| It is impossible for us to suck the sea to dry it up completely.
+clip_0346.wav| Instead, let us visit our king, Garuda.
+clip_0347.wav| When he comes to know that we have been harassed by the sea, he will get angry and seek revenge.
+clip_0348.wav| Even if we merely pay him a visit to seek his advice, we shall feel relieved.
+clip_0349.wav| As decided, they all went to their king, Garuda, and explained the reason of them being so sad.
+clip_0350.wav| O King, the sea has robbed the eggs of the good Tittibha birds even after the fact that you are our protector.
+clip_0351.wav| If this is allowed to continue, our entire race shall perish.
+clip_0352.wav| Garuda realized that the birds were in grave circumstances, and agreed to go and dry the entire sea.
+clip_0353.wav| Just as he was leaving, a messenger arrived from Lord Vishnu who needed his assistance at once, for some divine task.
+clip_0354.wav| Garuda explained to the messenger that he was unable to serve his master at this time.
+clip_0355.wav| I am such a common servant to the Lord for him to need me.
+clip_0356.wav| The sea, which is the resting place of the Lord, has swallowed the eggs of the Tittibha birds.
+clip_0357.wav| I refuse to serve him if he will not force the sea to return the eggs at once.
+clip_0358.wav| This is my firm resolution. Please let him know of it.
+clip_0359.wav| When Lord Vishnu came to know of Garuda's resolution from his messenger, he thought, I can understand his behaviour and need to pacify him.
+clip_0360.wav| He is the king and protector of all the birds. I must meet Garuda at once.
+clip_0361.wav| As Lord Vishnu visited Garuda, he bowed in respect and explained, O Master, the sea, which is your resting place has insulted me by swallowing the eggs of my humble servant, the good Tittibha birds.
+clip_0362.wav| It is out of the respect that I have for you that I have not taken any step for revenge.
+clip_0363.wav| Lord Vishnu considered his plea, Come with me Garuda.
+clip_0364.wav| You are right. The sea should not have done such a thing on purpose.
+clip_0365.wav| Let us go and return the eggs to the Tittibha birds.
+clip_0366.wav| After that we will leave, as I need your assistance.
+clip_0367.wav| They all went to the seashore where Lord Vishnu reprimanded the sea.
+clip_0368.wav| Taking a thunderbolt in his hand, he warned, O Sea, you have been wicked.
+clip_0369.wav| Return the eggs of the Tittibha birds at once or dare to face my anger.
+clip_0370.wav| When the sea heard the warning from the Lord Vishnu himself, it was terrified.
+clip_0371.wav| It apologised at once, and returned the eggs to the Tittibha birds.
+clip_0372.wav| The wise indeed say, Do not underestimate the power of the timid.
+clip_0373.wav| There lived a turtle called Kambugriva in a lake, who had two swans as her good friends.
+clip_0374.wav| All three of them would meet on the banks of the lake every day, and exchanged stories, before returning at sunset.
+clip_0375.wav| One year, there was no rain and lake started to dry.
+clip_0376.wav| The swans got worried about the declining water level of the lake, and said to the turtle, You will not be able to survive in this lake.
+clip_0377.wav| All the water in the lake will soon dry up.
+clip_0378.wav| The turtle was aware of the problem, It is indeed difficult to live here anymore.
+clip_0379.wav| Dear friends, please look for an alternate lake which is full of water.
+clip_0380.wav| Then, find a strong stick from somewhere.
+clip_0381.wav| The turtle continued, Once you find another lake, you can carry me to the lake with a stick.
+clip_0382.wav| I can hold the stick tightly with my mouth, while both of you can hold the stick at either ends and fly.
+clip_0383.wav| As planned, the swans flew to distant places and after some time found a lake which had plenty of water in it.
+clip_0384.wav| They returned to carry the turtle.
+clip_0385.wav| They prepared to hold the stick from both the ends, and suggested the turtle, Dear friend, everything seems fine.
+clip_0386.wav| But make sure to keep your mouth tightly shut all the time.
+clip_0387.wav| You must not speak, or you will fall off.
+clip_0388.wav| Finally, they started flying.
+clip_0389.wav| After some time, they had flown some distance when the turtle saw a town below.
+clip_0390.wav| The people of the town were staring at the sight of two swans carrying a turtle in the sky.
+clip_0391.wav| Look at that! This is a rare sight that two birds are carrying a turtle with the help of a stick, they shouted in admiration.
+clip_0392.wav| On hearing all the commotion, the turtle opened her mouth, What is all the commotion about?, she asked.
+clip_0393.wav| Needless to say, she went down the moment she opened her mouth, and the swans could do nothing to stop him from falling down to the earth.
+clip_0394.wav| As she fell down, the people of the town captured her to make a feast out of her.
+clip_0395.wav| The wise indeed say, Never fail to listen to the advice of your friends.
+clip_0396.wav| A couple of sparrows lived happily in their nest on top of a huge tree in a jungle.
+clip_0397.wav| The female sparrow had laid her eggs in the nest and they were expecting their newborns soon.
+clip_0398.wav| On a particular day, unable to bear the heat of the summer sun, an elephant went berserk.
+clip_0399.wav| He crashed into all trees in his way.
+clip_0400.wav| On his way, he broke the branches of the tree that supported the nest of the sparrow couple.
+clip_0401.wav| As the branches fell, so did the nest and all the newly laid eggs smashed against the ground.
+clip_0402.wav| Although the sparrows managed to escape by flying away, they were heart-broken to see that they had lost the eggs.
+clip_0403.wav| The female sparrow began to cry and wail loudly.
+clip_0404.wav| A woodpecker, who was at a little distance, was touched by cries.
+clip_0405.wav| He went to her and said, Dear good sparrow! There is nothing you can do by crying.
+clip_0406.wav| What is destined to happen, will happen for sure.
+clip_0407.wav| The female sparrow replied, That is indeed true.
+clip_0408.wav| But all my children were killed by this wicked elephant, this is also true. We had done no harm to him.
+clip_0409.wav| If you consider yourself to be a friend, continued the female sparrow, Please suggest me a way to destroy this elephant and avenge the death of my children.
+clip_0410.wav| So I will, replied the woodpecker, I have a fly as a friend.
+clip_0411.wav| Let us go and ask for her help to destroy this cruel elephant.
+clip_0412.wav| Thus, the woodpecker and the female sparrow went to meet the fly.
+clip_0413.wav| The woodpecker explained, My friend, please meet this sparrow.
+clip_0414.wav| She is a dear friend of mine.
+clip_0415.wav| Her eggs were destroyed by a wicked elephant please help us find a way to destroy this cruel elephant.
+clip_0416.wav| I will certainly help you, the fly said after hearing the events, How can I be your friend, and yet not help you when you need me.
+clip_0417.wav| I have a frog as a good friend, let us seek his help to destroy this wicked elephant.
+clip_0418.wav| Thus, the female sparrow, woodpecker and the fly went to the frog, and explained him of all the events for which they had come to him for help.
+clip_0419.wav| The old frog said after hearing everything, The elephant is big, but he is alone.
+clip_0420.wav| What can this elephant do, if we work together to destroy him? I have a plan!
+clip_0421.wav| He explained, Fly When the sun is scorching, your task would be to buzz in his ears.
+clip_0422.wav| When he closes his eyes in sheer ecstasy, the woodpecker's task would be to peck his eyes and make him blind.
+clip_0423.wav| In this scorching summer, he will certainly search for water, but being blinded already he will not be able to do so.
+clip_0424.wav| I will then sit on the edge of the nearby pit and croak at the top of my voice.
+clip_0425.wav| He continued, When the thirsty elephant hears me, he will think there is a pond or lake nearby and follow my voice.
+clip_0426.wav| And when he does so, he will fall into the pit and perish.
+clip_0427.wav| This way, we can avenge the death of the sparrow's children!
+clip_0428.wav| The others agreed to the plan, and organized to do their part of the tasks as laid by the old frog.
+clip_0429.wav| They executed their tasks successfully, and the elephant fell into a muddy pit and was severely wounded.
+clip_0430.wav| The wise indeed say, Even the low and humble achieve results when they work together.
+clip_0431.wav| There lived a lion called Vajradaunstra in the jungle, who had two attendants, a jackal and a wolf.
+clip_0432.wav| One day a caravan was passing by, and one of the camels in the caravan was an expectant female.
+clip_0433.wav| As she was not able to walk, and was in labour pains, the caravan set her free and left her behind.
+clip_0434.wav| Within moments, she fell prey to the lion, and while the three of them were eating.
+clip_0435.wav| They cut the womb of the camel, from which a baby camel came out.
+clip_0436.wav| Since, it was just a baby, and they already had a good meal out of the camel, the lion decided to spare the baby camel's life.
+clip_0437.wav| He brought the baby camel home.
+clip_0438.wav| The lion said to the little camel, From now onwards you will live with us, and will have nothing to fear from, even me.
+clip_0439.wav| I will let everybody know that you are under my protection, and you can wander about fearlessly and feed on the green grass of the jungle.
+clip_0440.wav| From then onwards, they lived happily.
+clip_0441.wav| The four of them would tell each other stories, and the camel was always found along with the lion.
+clip_0442.wav| One day, the lion returned home badly injured after a fight with a wild elephant.
+clip_0443.wav| He was unable to even walk, let alone go out and hunt.
+clip_0444.wav| Unable to bear the hunger, he asked the camel, jackal and the wolf to go in search of some small animal that he will be able to kill, even in his condition.
+clip_0445.wav| Thus, the hunger for all three of them would be satisfied.
+clip_0446.wav| But the three of them returned empty-handed in the evening, even after their efforts to search for an animal.
+clip_0447.wav| The jackal began wondering in hunger, The young camel does not belong amongst us, and he will be able to provide food for many days.
+clip_0448.wav| But, I have to be cunning to convince the lion to kill him, as he has promised not to harm him.
+clip_0449.wav| He said to the camel, Our master will soon die of hunger, and so will we.
+clip_0450.wav| I and the wolf will die of starvation, and some other animal will prey on you after they know that there is nobody to protect you anymore.
+clip_0451.wav| I suggest you must offer yourself to the lion, and save us from dying.
+clip_0452.wav| For your sacrifice, you will be reborn in a body twice the size of what you have in this life!
+clip_0453.wav| The young camel agreed immediately, Had it not been for the lion, I would have been dead long ago.
+clip_0454.wav| I shall be rewarded hundred-times for my sacrifice, and find a place in heaven. I agree to offer my body.
+clip_0455.wav| In the evening, the jackal said to the lion, that the camel will be blessed with twice the size of the body in his next birth, if he killed him and worshipped God before eating him.
+clip_0456.wav| He explained that the camel was willing to offer his body for this sacrifice.
+clip_0457.wav| The lion was convinced by the cunning jackal and he agreed.
+clip_0458.wav| As soon the jackal was able to convince him, he jumped on the young camel and tore him apart. The young camel died instantly.
+clip_0459.wav| The lion remembered that he must worship before eating for the young camel's next life and asked the jackal and wolf to guard over the carcass, while he returned.
+clip_0460.wav| He then went for a bath and worshiped the gods.
+clip_0461.wav| When the lion was gone, the jackal thought, How can I fool the lion and have the entire camel for myself?
+clip_0462.wav| He thought of a plan, and called out to the wolf, Hey wolf! I know you are unable to tolerate the hunger anymore.
+clip_0463.wav| Eat a mouthful of the camel's flesh and I will convince the lion by making up a story.
+clip_0464.wav| The wolf started eating some, believing the jackal's words.
+clip_0465.wav| Just then the jackal alerted, Here comes the lion, stop eating now!
+clip_0466.wav| When the lion returned, the wolf had stopped eating.
+clip_0467.wav| But the lion noticed that his food had been contaminated.
+clip_0468.wav| He roared in anger, How is it that my food is contaminated despite it being guarded by the two of you?
+clip_0469.wav| The jackal smiled at the wolf, I advised you not to eat, but you would not listen.
+clip_0470.wav| You could not tolerate your hunger and wait for the king's return! You should be ashamed of yourself!
+clip_0471.wav| The lion noticed the blood on the wolf's paw, and attacked it.
+clip_0472.wav| The wolf, realizing that he would die if he did not flee, ran for his life to never return again.
+clip_0473.wav| At the very moment a very big caravan approached. The camels in the caravan had large bells around their necks, and the jingling sound could be heard from a distance.
+clip_0474.wav| The lion was surprised by the unusual and terrifying noise and wanted to know what made the noise.
+clip_0475.wav| At once, the jackal used it as an opportunity. He said, O Master, it is the same caravan returning.
+clip_0476.wav| Only this time, it is led by Yama.
+clip_0477.wav| He must be very angry on you for killing the camel before the hour appointed for his death.
+clip_0478.wav| Look, he even brings the camels forefathers and relatives to avenge his death.
+clip_0479.wav| I suggest you should run away from here.
+clip_0480.wav| The lion believed him and was frightened.
+clip_0481.wav| When he saw the caravan approaching, with so many camels, he ran for his life.
+clip_0482.wav| When the jackal had finally gotten rid of the lion, he ate the camel's flesh all by himself. It lasted many days.
+clip_0483.wav| The wise indeed say, Spurn the company of the wicked else you will come to grief.
+clip_0484.wav| There lived a group of monkeys in the mountains.
+clip_0485.wav| During one winter, there were heavy rains.
+clip_0486.wav| Drenched in the rain, they began to shiver in the cold.
+clip_0487.wav| During this time, some of the monkey found some colourful Gunja fruits, which appeared to them as embers of fire.
+clip_0488.wav| Hoping to make some fire for themselves, they began to blow at them.
+clip_0489.wav| A bird on a nearby tree was watching the monkeys from above.
+clip_0490.wav| Considering the vain attempts the monkeys were busy with, it thought of advising them against it.
+clip_0491.wav| What big fools you are. You are blowing at some Gunja fruits and not embers of fire.
+clip_0492.wav| You will never be able to make any fire out of them.
+clip_0493.wav| What you are doing is a waste of time.
+clip_0494.wav| These fruits will not help you to protect yourself against the cold.
+clip_0495.wav| Go and find some shelter instead.
+clip_0496.wav| You may find a cave or a burrow where you will be protected from the rains and the cold winds.
+clip_0497.wav| The monkeys did not like his advice.
+clip_0498.wav| One of the old monkeys said, Go fool yourself. Why are you interfering in our task?
+clip_0499.wav| But the bird disagreed.
+clip_0500.wav| Not heeding what the old monkey had said, it flew down from the tree and persisted that the monkeys stop what they were doing.
+clip_0501.wav| The monkey ignored his chatter but the bird refused to stop.
+clip_0502.wav| In an effort to convince the monkeys, the bird came close to explain that their efforts were useless.
+clip_0503.wav| Already frustrated by their vain efforts, the monkeys became furious.
+clip_0504.wav| One of the monkeys caught hold of the bird and smashed him against the ground. The bird was severely wounded.
+clip_0505.wav| The wise indeed say, Never give advice unless you are asked for it.
+clip_0506.wav| A couple of sparrows lived on the branches of a huge tree, deep in the jungle.
+clip_0507.wav| They had worked very hard in building their nest, and it was a comfortable home that protected them in all weathers.
+clip_0508.wav| One day, during the winter, as they were enjoying the comforts of their nest, it started raining outside.
+clip_0509.wav| Sometime later, a monkey came to take shelter under the very same tree.
+clip_0510.wav| The monkey was all drenched in the rain, and his teeth were chattering in the cold.
+clip_0511.wav| When the female sparrow saw this, she felt pity on him and said from her nest, O Monkey, You have hands and feet similar to humans.
+clip_0512.wav| You can use them for many reasons. Why don't you make yourself a protected home?
+clip_0513.wav| The monkey was already suffering from the rain and the cold, and was in no mood for an advice.
+clip_0514.wav| He replied, You wicked sparrow! Why can't you keep your mouth shut?
+clip_0515.wav| But the female sparrow continued her advice.
+clip_0516.wav| She explained how she was able to enjoy the comforts of her home, and how she did not suffer from either heat, or cold, or rain.
+clip_0517.wav| This made the monkey very angry.
+clip_0518.wav| The monkey thought, What a wicked female bird!
+clip_0519.wav| She talks as if she has mastered all sciences and philosophies, and simply won't stop chirping.
+clip_0520.wav| She is making me so angry, that I might as well kill her.
+clip_0521.wav| I am already suffering from this rain and cold, I do not wish to hear any advice.
+clip_0522.wav| The female sparrow, however, continued chattering and did not cease to advice.
+clip_0523.wav| At one moment, the monkey became so angry, that he climbed up the tree and tore up her nest to pieces.
+clip_0524.wav| The wise indeed say, Give your advice only to those who deserve it, else you will come to grief.
+clip_0525.wav| There was a huge Banyan tree beside a lake, which nested a number of cranes.
+clip_0526.wav| In the hollow at the foot of the tree lived a poisonous black snake.
+clip_0527.wav| He used to climb up and eat the crane's youngs after they were hatched.
+clip_0528.wav| One crane, who had lost her children to the cunning black snake, started weeping on the banks of the lake.
+clip_0529.wav| A crab, who was nearby, heard the crane weeping, and asked, Why do you cry, aunty?
+clip_0530.wav| The crane replied, I am the unlucky mother, all of whose children have been eaten by the wicked black snake, who lives in the hollow of the tree.
+clip_0531.wav| What else can I do but weep? I would have killed the snake if I could!
+clip_0532.wav| The crab thought for a while, I have to devise a plan to have the black snake killed, and have the cranes destroyed at the same time.
+clip_0533.wav| The cranes are our natural enemy.
+clip_0534.wav| I will tell him half truth and half lies, to my advantage.
+clip_0535.wav| Thinking so, the crab said to the crane, Aunty! I will tell you a plan to get rid of the black snake.
+clip_0536.wav| All you have to do is scatter some fish and flesh from a nearby burrow, where a mongoose lives, to the snake's hollow.
+clip_0537.wav| When the mongoose will come following the food and reach the snake's home, he will certainly kill him!
+clip_0538.wav| The crane agreed to do as the crab planned.
+clip_0539.wav| As anticipated, the mongoose saw the black snake while following the trail of food.
+clip_0540.wav| They had a fight, and the mongoose killed the snake.
+clip_0541.wav| After this, the mongoose realized that there were many cranes on the top of the trees.
+clip_0542.wav| In due course of time, the mongoose climbed up the trees and started killing the cranes, till all the cranes were destroyed.
+clip_0543.wav| The wise indeed say, The solution of the problem should not be worse than the problem itself. That is, while trying to solve the problem, you should not complicate the problem further.
+clip_0544.wav| Once there was a king, who had a pet monkey.
+clip_0545.wav| This monkey was a fool, but was treated royally and moved freely in the king's palace.
+clip_0546.wav| He was also allowed to enter the king's personal rooms that were forbidden even for the confidential servants.
+clip_0547.wav| One afternoon, the king was asleep, while the monkey kept a watch.
+clip_0548.wav| All of a sudden, a fly came in the room and sat on the king's chest.
+clip_0549.wav| The monkey swayed her away, but the fly would only go away for some time and return on the king's chest again.
+clip_0550.wav| The monkey got very angry and excited.
+clip_0551.wav| The foolish monkey started chasing the fly with a sword.
+clip_0552.wav| As the fly sat on the king's chest again, the monkey hit the fly with all his might.
+clip_0553.wav| The fly flew away unharmed, but the king was severely wounded.
+clip_0554.wav| The wise indeed say, Beware of a foolish friend. He can cause you more harm than your enemy.
+clip_0555.wav| There was a Brahmin in a certain town, who was a thief.
+clip_0556.wav| It was believed that he had become a thief due to ill actions in his previous life.
+clip_0557.wav| One day, four Brahmins arrived in this town from a far-off place, to sell some wares.
+clip_0558.wav| They had a successful business and earned a handful of money.
+clip_0559.wav| The thief watched them making money, and thought of stealing the money from them.
+clip_0560.wav| He approached them as a friend, and soon won their confidence by quoting eloquently from the Holy Scriptures.
+clip_0561.wav| He requested them to appoint him as their helping hand, to which they agreed.
+clip_0562.wav| One day, the Brahmins had sold all their wares.
+clip_0563.wav| They decided that it would not be proper for them to travel with all the money.
+clip_0564.wav| So, they purchased jewels with all the money that they had earned.
+clip_0565.wav| Then, they cut open their thighs and hid the jewels inside.
+clip_0566.wav| With the help of a special ointment, they healed their cuts.
+clip_0567.wav| In this manner, they concealed all their jewels.
+clip_0568.wav| But, all this happened during the time that the thief was in service.
+clip_0569.wav| So, he knew where they had hidden all their earnings.
+clip_0570.wav| The thief wondered, I have not got a chance to rob them till now.
+clip_0571.wav| If I can accompany them when they travel homewards, I may be able to get a chance to steal them on the way.
+clip_0572.wav| I can poison them on the way, and take away the precious jewels.
+clip_0573.wav| Later, when they started preparing to leave, the thief started weeping.
+clip_0574.wav| He said, Dear friends, the very thought of your departure makes me sad.
+clip_0575.wav| After so many days that we have been together and shared a bond of love, I will be left all alone after you depart.
+clip_0576.wav| Please take me along with you.
+clip_0577.wav| The Brahmins were moved by his emotions, and decided to take him with them, and the five of them started the journey.
+clip_0578.wav| On their way, they were going through the jungle and were crossing an area controlled by a wild tribe.
+clip_0579.wav| The chief of the tribe had a magical crow as his pet, who could foresee many things.
+clip_0580.wav| As they came near their place, the crow screamed, Quick! They have treasure! Kill them and take their treasure!
+clip_0581.wav| When the tribesmen heard this, they captured the five friends.
+clip_0582.wav| They searched them and their belongings, even removed their clothes, but found nothing.
+clip_0583.wav| The chief said, You certainly have some treasure with you.
+clip_0584.wav| The crow has never been wrong before.
+clip_0585.wav| Hand over your treasure to us, or we will kill you, as the crow suggests.
+clip_0586.wav| You may have eaten the treasure, and we may have to cut open your stomachs to recover them. Tell us the truth.
+clip_0587.wav| The thief, who was also a Brahmin, thought, If they kill any of them, and search their bodies, they will recover jewels from the body.
+clip_0588.wav| They will not believe me, and kill me too!
+clip_0589.wav| They will not find any jewel, is another matter, but I will die anyway.
+clip_0590.wav| Thus, the Brahmin-thief made a firm resolution and said to the chief, O Chief, you believe we have treasure hidden in our bodies.
+clip_0591.wav| But it will be a mistake to kill all of us to pay for the crow's misunderstanding!
+clip_0592.wav| I offer you myself. You may kill me, cut open my body to the very bones and see if you find any treasure.
+clip_0593.wav| The chief agreed, and thus, the Brahmin-thief sacrificed himself. The tribesmen looked into every bit of his body, but found nothing.
+clip_0594.wav| The chief was very confused he believed that the crow must somehow have misunderstood.
+clip_0595.wav| He humbly said to the remaining four Brahmins, O travellers, it was a mistake to kill your friend, for he did not have any hidden treasure.
+clip_0596.wav| I will not further my mistake by killing any of you.
+clip_0597.wav| I release you from my captivity, please continue your journey.
+clip_0598.wav| In this manner, the four Brahmins, and the jewels were saved and continued their journey.
+clip_0599.wav| The wise indeed say, Better an intelligent enemy than a foolish friend.
+clip_0600.wav| There was a temple of Lord Shiva near a southern city called Mahilaropyam.
