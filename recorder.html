@@ -142,7 +142,7 @@
       width: 1px;
       height: 1px;
       overflow: hidden;
-      clip: rect(0, 0, 0, 0);
+      clip-path: inset(50%);
       white-space: nowrap;
     }
 
@@ -170,6 +170,8 @@
     (function () {
       'use strict';
 
+      var SVG_NS = 'http://www.w3.org/2000/svg';
+
       // ── SVG helpers ──────────────────────────────────────────────────────────
 
       /**
@@ -179,8 +181,7 @@
        * @returns {SVGElement}
        */
       function createSvgEl(tag, attrs) {
-        var NS = 'http://www.w3.org/2000/svg';
-        var el = document.createElementNS(NS, tag);
+        var el = document.createElementNS(SVG_NS, tag);
         Object.keys(attrs).forEach(function (key) {
           el.setAttribute(key, attrs[key]);
         });
@@ -289,7 +290,7 @@
         var loadBtn = document.createElement('button');
         loadBtn.type = 'button';
         loadBtn.className = 'btn-load';
-        loadBtn.setAttribute('aria-controls', 'script-file-input');
+
 
         loadBtn.appendChild(buildFolderIcon());
 
