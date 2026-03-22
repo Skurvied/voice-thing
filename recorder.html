@@ -344,6 +344,73 @@
 
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     .recording-dot { width: 16px; height: 16px; background: #e53935; border-radius: 50%; animation: pulse 1s infinite; display: inline-block; vertical-align: middle; margin-right: 8px; }
+
+    /* ── Review action buttons ───────────────────────────────────────────────── */
+
+    .review-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .review-actions button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 0.925rem;
+      font-weight: 600;
+      padding: 0.65rem 1.4rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .review-actions button:active {
+      transform: translateY(1px);
+    }
+
+    .review-actions button:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+
+    /* Play — neutral/info (blue-gray) */
+    .btn-play {
+      background-color: #3a4a6b;
+      color: #c5d4f5;
+    }
+
+    .btn-play:hover {
+      background-color: #4a5e88;
+      box-shadow: 0 4px 16px rgba(58, 74, 107, 0.5);
+    }
+
+    /* Keep — green/success */
+    .btn-keep {
+      background-color: #1e6b3a;
+      color: #a4f0c0;
+    }
+
+    .btn-keep:hover {
+      background-color: #27884a;
+      box-shadow: 0 4px 16px rgba(30, 107, 58, 0.5);
+    }
+
+    /* Retry — amber/warning */
+    .btn-retry {
+      background-color: #6b4a0e;
+      color: #fcd770;
+    }
+
+    .btn-retry:hover {
+      background-color: #885e12;
+      box-shadow: 0 4px 16px rgba(107, 74, 14, 0.5);
+    }
   </style>
 </head>
 <body>
@@ -369,7 +436,8 @@
         micStream: null,
         audioCtx: null,
         currentRecording: null,
-        modalOpen: false
+        modalOpen: false,
+        playbackAudio: null
       };
 
       // ── Browser detection ────────────────────────────────────────────────────
@@ -843,11 +911,40 @@
           recordPrompt.appendChild(dot);
           recordPrompt.appendChild(document.createTextNode('Recording…'));
         } else if (state.recordingState === 'review') {
-          recordPrompt.textContent = 'Recording complete';
+          recordPrompt.textContent = 'Recording complete — listen, keep, or retry:';
         } else {
           recordPrompt.textContent = 'Hold SPACE to record';
         }
         mainArea.appendChild(recordPrompt);
+
+        // Review action buttons
+        if (state.recordingState === 'review') {
+          var reviewActions = document.createElement('div');
+          reviewActions.className = 'review-actions';
+
+          var playBtn = document.createElement('button');
+          playBtn.type = 'button';
+          playBtn.className = 'btn-play';
+          playBtn.textContent = 'Play (P)';
+          playBtn.addEventListener('click', function() { playRecording(); });
+          reviewActions.appendChild(playBtn);
+
+          var keepBtn = document.createElement('button');
+          keepBtn.type = 'button';
+          keepBtn.className = 'btn-keep';
+          keepBtn.textContent = 'Keep (Enter)';
+          keepBtn.addEventListener('click', function() { keepRecording(); });
+          reviewActions.appendChild(keepBtn);
+
+          var retryBtn = document.createElement('button');
+          retryBtn.type = 'button';
+          retryBtn.className = 'btn-retry';
+          retryBtn.textContent = 'Retry (R)';
+          retryBtn.addEventListener('click', function() { retryRecording(); });
+          reviewActions.appendChild(retryBtn);
+
+          mainArea.appendChild(reviewActions);
+        }
 
         // Keyboard shortcuts footer
         var footer = document.createElement('p');
@@ -1040,11 +1137,74 @@
         return buffer;
       }
 
+      // ── Placeholder stubs (implemented in Tasks 8, 9, 10) ───────────────────
+
+      function saveRecording(index, audioData) {
+        console.log('saveRecording() not yet implemented. index:', index, 'samples:', audioData.length);
+      }
+
+      function saveSession() {
+        console.log('saveSession() not yet implemented.');
+      }
+
+      function showCompletionScreen() {
+        console.log('showCompletionScreen() not yet implemented.');
+      }
+
+      // ── Review state controls ─────────────────────────────────────────────────
+
+      function playRecording() {
+        var wavBuffer = encodeWAV(state.currentRecording, 44100);
+        var blob = new Blob([wavBuffer], { type: 'audio/wav' });
+        var url = URL.createObjectURL(blob);
+        if (state.playbackAudio) {
+          state.playbackAudio.pause();
+          URL.revokeObjectURL(state.playbackAudio.src);
+        }
+        state.playbackAudio = new Audio(url);
+        state.playbackAudio.play();
+      }
+
+      function keepRecording() {
+        saveRecording(state.currentIndex, state.currentRecording);
+        state.completedLines.add(state.currentIndex);
+        state.currentRecording = null;
+        state.recordingState = 'idle';
+        advanceToNext();
+        saveSession();
+        renderMainArea();
+        renderSidebar();
+      }
+
+      function retryRecording() {
+        state.currentRecording = null;
+        state.recordingState = 'idle';
+        renderMainArea();
+      }
+
+      function advanceToNext() {
+        var total = state.entries.length;
+        for (var i = 1; i <= total; i++) {
+          var idx = (state.currentIndex + i) % total;
+          if (!state.completedLines.has(idx)) {
+            state.currentIndex = idx;
+            return;
+          }
+        }
+        // All lines complete
+        showCompletionScreen();
+      }
+
       // ── Keyboard listeners ───────────────────────────────────────────────────
 
       document.addEventListener('keydown', function(e) {
         if (state.screen !== 'recording' || state.modalOpen) return;
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (state.recordingState === 'review') {
+          if (e.code === 'KeyP') { e.preventDefault(); playRecording(); }
+          if (e.code === 'Enter') { e.preventDefault(); keepRecording(); }
+          if (e.code === 'KeyR') { e.preventDefault(); retryRecording(); }
+        }
         if (e.code === 'Space' && !e.repeat) {
           e.preventDefault();
           if (state.recordingState === 'idle') startRecording();
