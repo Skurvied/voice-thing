@@ -365,7 +365,11 @@
         screen: 'landing',
         browser: null,
         dirHandle: null,
-        recordingState: 'idle'
+        recordingState: 'idle',
+        micStream: null,
+        audioCtx: null,
+        currentRecording: null,
+        modalOpen: false
       };
 
       // ── Browser detection ────────────────────────────────────────────────────
@@ -838,6 +842,8 @@
           dot.className = 'recording-dot';
           recordPrompt.appendChild(dot);
           recordPrompt.appendChild(document.createTextNode('Recording…'));
+        } else if (state.recordingState === 'review') {
+          recordPrompt.textContent = 'Recording complete';
         } else {
           recordPrompt.textContent = 'Hold SPACE to record';
         }
@@ -888,7 +894,124 @@
         // Populate both panels
         renderSidebar();
         renderMainArea();
+
+        // Request microphone access
+        initMicrophone();
       }
+
+      // ── Microphone ───────────────────────────────────────────────────────────
+
+      /**
+       * Display a full-screen, blocking error overlay with the given message.
+       * @param {string} msg
+       */
+      function showMicError(msg) {
+        var overlay = document.createElement('div');
+        overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,17,23,0.97);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:2rem;';
+
+        var icon = document.createElement('div');
+        icon.style.cssText = 'font-size:3rem;margin-bottom:1.5rem;';
+        icon.textContent = '\u26A0\uFE0F';
+        overlay.appendChild(icon);
+
+        var heading = document.createElement('h2');
+        heading.style.cssText = 'color:#f87171;font-size:1.25rem;font-weight:700;margin-bottom:1rem;text-align:center;';
+        heading.textContent = 'Microphone Error';
+        overlay.appendChild(heading);
+
+        var msgEl = document.createElement('p');
+        msgEl.style.cssText = 'color:#e8eaf0;font-size:0.95rem;line-height:1.6;max-width:480px;text-align:center;';
+        msgEl.textContent = msg;
+        overlay.appendChild(msgEl);
+
+        document.body.appendChild(overlay);
+      }
+
+      /**
+       * Request microphone access and set up the AudioContext.
+       * Displays a blocking error overlay on failure.
+       */
+      async function initMicrophone() {
+        try {
+          state.micStream = await navigator.mediaDevices.getUserMedia({
+            audio: { sampleRate: 44100, channelCount: 1, echoCancellation: false }
+          });
+          state.audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 44100 });
+        } catch (err) {
+          var msg = 'Microphone error: ' + err.message;
+          if (err.name === 'NotAllowedError') msg = 'Microphone access denied. Please allow microphone access in your browser settings and reload.';
+          else if (err.name === 'NotFoundError') msg = 'No microphone found. Please connect a microphone and reload.';
+          else if (err.name === 'NotReadableError') msg = 'Microphone is in use by another application. Close it and reload.';
+          showMicError(msg);
+        }
+      }
+
+      // ── Recording ─────────────────────────────────────────────────────────────
+
+      var recordingChunks = [];
+      var isRecording = false;
+      var processorNode = null;
+      var sourceNode = null;
+
+      function startRecording() {
+        recordingChunks = [];
+        isRecording = true;
+        state.recordingState = 'recording';
+        sourceNode = state.audioCtx.createMediaStreamSource(state.micStream);
+        processorNode = state.audioCtx.createScriptProcessor(4096, 1, 1);
+        processorNode.onaudioprocess = function(e) {
+          if (isRecording) {
+            var data = e.inputBuffer.getChannelData(0);
+            recordingChunks.push(new Float32Array(data));
+          }
+        };
+        sourceNode.connect(processorNode);
+        processorNode.connect(state.audioCtx.destination);
+        renderMainArea();
+      }
+
+      function stopRecording() {
+        isRecording = false;
+        if (processorNode) {
+          processorNode.disconnect();
+          processorNode = null;
+        }
+        if (sourceNode) {
+          sourceNode.disconnect();
+          sourceNode = null;
+        }
+        // Merge chunks into single Float32Array
+        var length = 0;
+        for (var i = 0; i < recordingChunks.length; i++) length += recordingChunks[i].length;
+        var merged = new Float32Array(length);
+        var offset = 0;
+        for (var i = 0; i < recordingChunks.length; i++) {
+          merged.set(recordingChunks[i], offset);
+          offset += recordingChunks[i].length;
+        }
+        state.currentRecording = merged;
+        state.recordingState = 'review';
+        renderMainArea();
+      }
+
+      // ── Keyboard listeners ───────────────────────────────────────────────────
+
+      document.addEventListener('keydown', function(e) {
+        if (state.screen !== 'recording' || state.modalOpen) return;
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space' && !e.repeat) {
+          e.preventDefault();
+          if (state.recordingState === 'idle') startRecording();
+        }
+      });
+
+      document.addEventListener('keyup', function(e) {
+        if (state.screen !== 'recording' || state.modalOpen) return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          if (state.recordingState === 'recording') stopRecording();
+        }
+      });
 
       // ── Init ─────────────────────────────────────────────────────────────────
 
