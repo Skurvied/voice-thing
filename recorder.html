@@ -449,6 +449,38 @@
       outline: 2px solid var(--accent-primary);
       outline-offset: 3px;
     }
+
+    /* ── Completion Screen ───────────────────────────────────────────────────── */
+
+    .completion {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2em;
+    }
+
+    .completion h1 { font-size: 2.5em; margin-bottom: 0.5em; }
+    .completion p { font-size: 1.2em; opacity: 0.7; margin-bottom: 2em; }
+
+    /* ── Global button transitions ───────────────────────────────────────────── */
+
+    button {
+      transition: all 0.15s ease;
+    }
+
+    /* ── Screen fade ─────────────────────────────────────────────────────────── */
+
+    #app {
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -998,6 +1030,12 @@
           });
           sidebar.appendChild(item);
         });
+
+        // Auto-scroll to keep the active item visible
+        var activeItem = sidebar.querySelector('.sidebar-item.active');
+        if (activeItem) {
+          activeItem.scrollIntoView({ block: 'nearest' });
+        }
       }
 
       /**
@@ -1015,6 +1053,15 @@
 
         var entry = state.entries[state.currentIndex];
         var total = state.entries.length;
+
+        // Recording state: red background tint
+        if (state.recordingState === 'recording') {
+          mainArea.style.backgroundColor = 'rgba(229, 57, 53, 0.07)';
+          mainArea.style.transition = 'background-color 0.2s ease';
+        } else {
+          mainArea.style.backgroundColor = '';
+          mainArea.style.transition = 'background-color 0.2s ease';
+        }
 
         // Progress indicator
         var progress = document.createElement('p');
@@ -1494,7 +1541,104 @@
       }
 
       function showCompletionScreen() {
-        console.log('showCompletionScreen() not yet implemented.');
+        state.screen = 'complete';
+
+        // Clear #app safely
+        var app = document.getElementById('app');
+        while (app.firstChild) {
+          app.removeChild(app.firstChild);
+        }
+
+        // Restore #app centering styles (may have been overridden by recording screen)
+        app.style.display = '';
+        app.style.padding = '';
+        app.style.minHeight = '';
+
+        var total = state.entries.length;
+
+        // Outer completion container
+        var container = document.createElement('div');
+        container.className = 'completion';
+
+        // Heading
+        var heading = document.createElement('h1');
+        heading.textContent = 'All Done!';
+        container.appendChild(heading);
+
+        // Message
+        var msg = document.createElement('p');
+        msg.textContent = 'All ' + total + ' lines have been recorded.';
+        container.appendChild(msg);
+
+        // Download ZIP button (zip mode only)
+        if (!state.browser.canDirectSave) {
+          var zipBtn = document.createElement('button');
+          zipBtn.type = 'button';
+          zipBtn.className = 'btn-begin';
+          zipBtn.style.marginBottom = '1rem';
+          zipBtn.textContent = 'Download All Recordings (ZIP)';
+          zipBtn.addEventListener('click', function () {
+            downloadZip();
+          });
+          container.appendChild(zipBtn);
+        }
+
+        // Start New Session button
+        var restartBtn = document.createElement('button');
+        restartBtn.type = 'button';
+        restartBtn.className = 'btn-choose-folder';
+        restartBtn.textContent = 'Start New Session';
+        restartBtn.addEventListener('click', function () {
+          clearSessionAndRestart();
+        });
+        container.appendChild(restartBtn);
+
+        app.appendChild(container);
+      }
+
+      function clearSessionAndRestart() {
+        if (state.storageAvailable) {
+          localStorage.removeItem(state.sessionKey);
+        }
+        state.completedLines.clear();
+        state.needsRerecord.clear();
+        state.currentIndex = 0;
+        state.zipEntries.clear();
+        state.currentRecording = null;
+        state.recordingState = 'idle';
+        state.screen = 'landing';
+        // Remove any zip notice bars
+        var notice = document.getElementById('zip-notice');
+        if (notice) notice.remove();
+        var reloadNotice = document.getElementById('zip-reload-notice');
+        if (reloadNotice) reloadNotice.remove();
+        showLandingScreen();
+      }
+
+      function showLandingScreen() {
+        // Reset state for a fresh landing
+        state.entries = [];
+        state.scriptName = '';
+        state.sessionKey = '';
+        state.dirHandle = null;
+        state.micStream = null;
+        state.audioCtx = null;
+        state.modalOpen = false;
+        state.playbackAudio = null;
+        state.browser = null;
+
+        // Clear #app safely
+        var app = document.getElementById('app');
+        while (app.firstChild) {
+          app.removeChild(app.firstChild);
+        }
+
+        // Restore default #app centering styles
+        app.style.display = '';
+        app.style.padding = '';
+        app.style.minHeight = '';
+
+        renderLanding();
       }
 
       // ── Review state controls ─────────────────────────────────────────────────
