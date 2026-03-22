@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Line Recorder</title>
+  <style>
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Dark Theme Variables */
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #1a1d27;
+      --bg-tertiary: #242736;
+      --border-color: #2e3248;
+      --text-primary: #e8eaf0;
+      --text-secondary: #9aa0b8;
+      --text-muted: #5c6280;
+      --accent-primary: #6c7ef7;
+      --accent-hover: #8491f9;
+      --accent-active: #5a6be0;
+      --accent-glow: rgba(108, 126, 247, 0.2);
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+    }
+
+    /* Base */
+    html, body {
+      height: 100%;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* App container */
+    #app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    /* Landing Screen */
+    .landing {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    /* Logo / Icon area */
+    .landing__icon {
+      width: 72px;
+      height: 72px;
+      background-color: var(--bg-tertiary);
+      border: 2px solid var(--border-color);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .landing__icon svg {
+      width: 36px;
+      height: 36px;
+      fill: var(--accent-primary);
+    }
+
+    /* Title */
+    .landing__title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .landing__subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 340px;
+      line-height: 1.6;
+    }
+
+    /* Load Script button */
+    .btn-load {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.75rem 1.75rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 0 0 0 var(--accent-glow);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-load:hover {
+      background-color: var(--accent-hover);
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .btn-load:active {
+      background-color: var(--accent-active);
+      transform: translateY(1px);
+    }
+
+    .btn-load:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+
+    .btn-load svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Hidden file input */
+    .file-input-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    .landing__footer {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+    }
+
+    /* Divider */
+    .landing__divider {
+      width: 40px;
+      height: 2px;
+      background-color: var(--border-color);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ── SVG helpers ──────────────────────────────────────────────────────────
+
+      /**
+       * Create an SVG element with the given attributes.
+       * @param {string} tag
+       * @param {Object} attrs
+       * @returns {SVGElement}
+       */
+      function createSvgEl(tag, attrs) {
+        var NS = 'http://www.w3.org/2000/svg';
+        var el = document.createElementNS(NS, tag);
+        Object.keys(attrs).forEach(function (key) {
+          el.setAttribute(key, attrs[key]);
+        });
+        return el;
+      }
+
+      /**
+       * Build the microphone SVG icon.
+       * @returns {SVGElement}
+       */
+      function buildMicIcon() {
+        var svg = createSvgEl('svg', { viewBox: '0 0 24 24', xmlns: 'http://www.w3.org/2000/svg' });
+        // Mic body
+        var rect = createSvgEl('rect', { x: '9', y: '2', width: '6', height: '11', rx: '3' });
+        // Stand arc
+        var path = createSvgEl('path', {
+          d: 'M5 10a7 7 0 0 0 14 0',
+          stroke: 'currentColor',
+          'stroke-width': '2',
+          'stroke-linecap': 'round',
+          fill: 'none'
+        });
+        // Stand line
+        var line = createSvgEl('line', {
+          x1: '12', y1: '17', x2: '12', y2: '22',
+          stroke: 'currentColor',
+          'stroke-width': '2',
+          'stroke-linecap': 'round'
+        });
+        // Base line
+        var base = createSvgEl('line', {
+          x1: '8', y1: '22', x2: '16', y2: '22',
+          stroke: 'currentColor',
+          'stroke-width': '2',
+          'stroke-linecap': 'round'
+        });
+        svg.appendChild(rect);
+        svg.appendChild(path);
+        svg.appendChild(line);
+        svg.appendChild(base);
+        return svg;
+      }
+
+      /**
+       * Build the folder/open icon for the load button.
+       * @returns {SVGElement}
+       */
+      function buildFolderIcon() {
+        var svg = createSvgEl('svg', { viewBox: '0 0 24 24', xmlns: 'http://www.w3.org/2000/svg' });
+        var path = createSvgEl('path', {
+          d: 'M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z',
+          stroke: 'currentColor',
+          'stroke-width': '2',
+          'stroke-linejoin': 'round',
+          fill: 'none'
+        });
+        svg.appendChild(path);
+        return svg;
+      }
+
+      // ── DOM builders ─────────────────────────────────────────────────────────
+
+      /**
+       * Render the landing screen into the #app container.
+       */
+      function renderLanding() {
+        var app = document.getElementById('app');
+
+        // Root landing div
+        var landing = document.createElement('div');
+        landing.className = 'landing';
+
+        // -- Icon
+        var iconWrap = document.createElement('div');
+        iconWrap.className = 'landing__icon';
+        iconWrap.appendChild(buildMicIcon());
+        landing.appendChild(iconWrap);
+
+        // -- Title
+        var title = document.createElement('h1');
+        title.className = 'landing__title';
+        title.textContent = 'Voice Line Recorder';
+        landing.appendChild(title);
+
+        // -- Subtitle
+        var subtitle = document.createElement('p');
+        subtitle.className = 'landing__subtitle';
+        subtitle.textContent = 'Record audio for each line of your script. Load a .txt file to get started.';
+        landing.appendChild(subtitle);
+
+        // -- Divider
+        var divider = document.createElement('div');
+        divider.className = 'landing__divider';
+        landing.appendChild(divider);
+
+        // -- Hidden file input
+        var fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = '.txt';
+        fileInput.className = 'file-input-hidden';
+        fileInput.id = 'script-file-input';
+        fileInput.setAttribute('aria-label', 'Load script file');
+        landing.appendChild(fileInput);
+
+        // -- Load Script button
+        var loadBtn = document.createElement('button');
+        loadBtn.type = 'button';
+        loadBtn.className = 'btn-load';
+        loadBtn.setAttribute('aria-controls', 'script-file-input');
+
+        loadBtn.appendChild(buildFolderIcon());
+
+        var btnLabel = document.createTextNode('Load Script');
+        loadBtn.appendChild(btnLabel);
+
+        loadBtn.addEventListener('click', function () {
+          fileInput.click();
+        });
+
+        landing.appendChild(loadBtn);
+
+        // -- Footer
+        var footer = document.createElement('p');
+        footer.className = 'landing__footer';
+        footer.textContent = 'Open a .txt script file to begin';
+        landing.appendChild(footer);
+
+        app.appendChild(landing);
+      }
+
+      // ── Init ─────────────────────────────────────────────────────────────────
+
+      renderLanding();
+
+    }());
+  </script>
+</body>
+</html>
