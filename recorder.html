@@ -1696,9 +1696,9 @@
           if (e.code === 'Enter') { e.preventDefault(); keepRecording(); }
           if (e.code === 'KeyR') { e.preventDefault(); retryRecording(); }
         }
-        if (e.code === 'Space' && !e.repeat) {
+        if (e.code === 'Space') {
           e.preventDefault();
-          if (state.recordingState === 'idle') startRecording();
+          if (!e.repeat && state.recordingState === 'idle') startRecording();
         }
       });
 
