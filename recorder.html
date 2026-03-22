@@ -467,6 +467,7 @@
         scriptName: '',
         currentIndex: 0,
         completedLines: new Set(),
+        needsRerecord: new Set(),
         screen: 'landing',
         browser: null,
         dirHandle: null,
@@ -476,7 +477,9 @@
         currentRecording: null,
         modalOpen: false,
         playbackAudio: null,
-        zipEntries: new Map()
+        zipEntries: new Map(),
+        storageAvailable: false,
+        sessionKey: ''
       };
 
       // ── Browser detection ────────────────────────────────────────────────────
@@ -571,6 +574,83 @@
       }
 
       /**
+       * Show a resume modal when a saved session is found.
+       * @param {{ currentIndex: number, completedLines: number[] }} session
+       */
+      function showResumeModal(session) {
+        state.modalOpen = true;
+        var total = state.entries.length;
+        var doneCount = session.completedLines.length;
+
+        // Overlay
+        var overlay = document.createElement('div');
+        overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,17,23,0.92);display:flex;align-items:center;justify-content:center;z-index:9999;padding:2rem;';
+
+        // Modal card
+        var modal = document.createElement('div');
+        modal.style.cssText = 'background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:16px;padding:2rem;max-width:420px;width:100%;display:flex;flex-direction:column;gap:1.25rem;';
+
+        // Title
+        var title = document.createElement('h2');
+        title.style.cssText = 'font-size:1.25rem;font-weight:700;color:var(--text-primary);margin:0;';
+        title.textContent = 'Resume Session?';
+        modal.appendChild(title);
+
+        // Message
+        var msg = document.createElement('p');
+        msg.style.cssText = 'font-size:0.95rem;color:var(--text-secondary);line-height:1.6;margin:0;';
+        msg.textContent = 'You have a session in progress (' + doneCount + ' / ' + total + ' complete). Resume or Start Over?';
+        modal.appendChild(msg);
+
+        // Buttons row
+        var btnRow = document.createElement('div');
+        btnRow.style.cssText = 'display:flex;gap:0.75rem;justify-content:flex-end;flex-wrap:wrap;';
+
+        // Start Over button
+        var startOverBtn = document.createElement('button');
+        startOverBtn.type = 'button';
+        startOverBtn.style.cssText = 'font-family:var(--font-sans);font-size:0.9rem;font-weight:600;padding:0.6rem 1.2rem;border-radius:10px;cursor:pointer;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-color);';
+        startOverBtn.textContent = 'Start Over';
+        startOverBtn.addEventListener('click', function () {
+          try { localStorage.removeItem(state.sessionKey); } catch (e) { /* ignore */ }
+          state.currentIndex = 0;
+          state.completedLines = new Set();
+          state.needsRerecord = new Set();
+          document.body.removeChild(overlay);
+          state.modalOpen = false;
+          showSetupScreen();
+        });
+        btnRow.appendChild(startOverBtn);
+
+        // Resume button
+        var resumeBtn = document.createElement('button');
+        resumeBtn.type = 'button';
+        resumeBtn.style.cssText = 'font-family:var(--font-sans);font-size:0.9rem;font-weight:600;padding:0.6rem 1.2rem;border-radius:10px;cursor:pointer;background:var(--accent-primary);color:#ffffff;border:none;';
+        resumeBtn.textContent = 'Resume';
+        resumeBtn.addEventListener('click', function () {
+          state.currentIndex = session.currentIndex;
+          state.completedLines = new Set(session.completedLines);
+          state.needsRerecord = new Set();
+          // In zip mode, mark all restored completed lines as needs-rerecord
+          var browser = detectBrowser();
+          state.browser = browser;
+          if (!browser.canDirectSave) {
+            session.completedLines.forEach(function (idx) {
+              state.needsRerecord.add(idx);
+            });
+          }
+          document.body.removeChild(overlay);
+          state.modalOpen = false;
+          showSetupScreen();
+        });
+        btnRow.appendChild(resumeBtn);
+
+        modal.appendChild(btnRow);
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+      }
+
+      /**
        * Render the setup screen into the #app container.
        * Detects browser capabilities and lets the user choose an output folder
        * (direct save) or acknowledges zip-download mode before proceeding.
@@ -646,6 +726,14 @@
         card.appendChild(scriptRow);
 
         setup.appendChild(card);
+
+        // -- Storage unavailable warning
+        if (!state.storageAvailable) {
+          var storageWarning = document.createElement('p');
+          storageWarning.style.cssText = 'font-size:0.875rem;color:#f87171;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.3);border-radius:10px;padding:0.875rem 1.25rem;width:100%;line-height:1.6;text-align:left;';
+          storageWarning.textContent = 'Session saving is not available in this browser when opened as a local file. Your progress will not be saved between page reloads.';
+          setup.appendChild(storageWarning);
+        }
 
         // -- Saving section
         var savingSection = document.createElement('div');
@@ -845,7 +933,14 @@
               var entries = parseScript(e.target.result);
               state.entries = entries;
               state.scriptName = file.name;
-              showSetupScreen();
+              state.storageAvailable = checkStorageAvailable();
+              state.sessionKey = getSessionKey(state.scriptName, state.entries);
+              var session = loadSession();
+              if (session) {
+                showResumeModal(session);
+              } else {
+                showSetupScreen();
+              }
             } catch (err) {
               showError(err.message);
             }
@@ -886,7 +981,11 @@
           var item = document.createElement('div');
           item.className = 'sidebar-item';
           if (state.completedLines.has(idx)) {
-            item.classList.add('completed');
+            if (state.needsRerecord.has(idx)) {
+              item.classList.add('needs-rerecord');
+            } else {
+              item.classList.add('completed');
+            }
           }
           if (idx === state.currentIndex) {
             item.classList.add('active');
@@ -1030,6 +1129,27 @@
         // Populate both panels
         renderSidebar();
         renderMainArea();
+
+        // Zip mode reload warning notice bar
+        if (!state.browser.canDirectSave && state.storageAvailable) {
+          var noticeBar = document.createElement('div');
+          noticeBar.id = 'zip-reload-notice';
+          noticeBar.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#6b4a0e;color:#fcd770;font-size:0.85rem;padding:0.55rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:50;';
+          var noticeText = document.createElement('span');
+          noticeText.textContent = 'Your browser uses zip download mode. If you reload the page, you\u2019ll need to re-record any lines from this session. Use \u2018Download All\u2019 frequently to save your progress.';
+          noticeBar.appendChild(noticeText);
+          var dismissBtn = document.createElement('button');
+          dismissBtn.type = 'button';
+          dismissBtn.style.cssText = 'background:none;border:none;color:#fcd770;cursor:pointer;font-size:1rem;padding:0 0.25rem;flex-shrink:0;';
+          dismissBtn.textContent = '\u00D7';
+          dismissBtn.setAttribute('aria-label', 'Dismiss notice');
+          dismissBtn.addEventListener('click', function () {
+            var notice = document.getElementById('zip-reload-notice');
+            if (notice) notice.parentNode.removeChild(notice);
+          });
+          noticeBar.appendChild(dismissBtn);
+          document.body.appendChild(noticeBar);
+        }
 
         // Request microphone access
         initMicrophone();
@@ -1332,8 +1452,45 @@
         existing.textContent = 'Download All (' + state.zipEntries.size + ' files)';
       }
 
+      function getSessionKey(scriptName, entries) {
+        var firstLine = entries.length > 0 ? entries[0].text : '';
+        var raw = scriptName + '|' + firstLine + '|' + entries.length;
+        var hash = 0;
+        for (var i = 0; i < raw.length; i++) {
+          hash = ((hash << 5) - hash) + raw.charCodeAt(i);
+          hash |= 0;
+        }
+        return 'vlr_' + Math.abs(hash).toString(36);
+      }
+
+      function checkStorageAvailable() {
+        try {
+          localStorage.setItem('__vlr_test', '1');
+          localStorage.removeItem('__vlr_test');
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+
       function saveSession() {
-        console.log('saveSession() not yet implemented.');
+        if (!state.storageAvailable) return;
+        var data = {
+          currentIndex: state.currentIndex,
+          completedLines: Array.from(state.completedLines),
+        };
+        try {
+          localStorage.setItem(state.sessionKey, JSON.stringify(data));
+        } catch (e) { /* silently fail */ }
+      }
+
+      function loadSession() {
+        if (!state.storageAvailable) return null;
+        try {
+          var raw = localStorage.getItem(state.sessionKey);
+          if (!raw) return null;
+          return JSON.parse(raw);
+        } catch (e) { return null; }
       }
 
       function showCompletionScreen() {
@@ -1357,6 +1514,7 @@
       function keepRecording() {
         saveRecording(state.currentIndex, state.currentRecording);
         state.completedLines.add(state.currentIndex);
+        state.needsRerecord.delete(state.currentIndex);
         state.currentRecording = null;
         state.recordingState = 'idle';
         advanceToNext();
