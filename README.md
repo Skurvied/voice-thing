@@ -1,12 +1,12 @@
 # Voice Line Recorder
 
-A single HTML file for recording voice lines from a script. No installation, no dependencies, no build step. Double-click to open in any browser.
+A small static browser app for recording voice lines from a script. No installation, no dependencies, no build step. Open `recorder.html` with the bundled `src/` and `styles/` folders intact.
 
 Built for batch recording sessions — load a script, read the lines, record them one by one, and save the audio files with the correct filenames.
 
 ## Usage
 
-1. Double-click `recorder.html` to open it in your browser
+1. Keep `recorder.html`, `src/`, and `styles/` together, then double-click `recorder.html`
 2. Click **Load Script** and select your `.txt` script file
 3. Choose an output folder (Chrome/Edge) or use zip download mode (Firefox/Safari)
 4. Hold **Space** to record, release to stop
@@ -39,9 +39,10 @@ clip_0003.wav| One day, a group of monkeys arrived at the site of the building.
 
 ## Features
 
-- **Zero install** — one HTML file, no server, no dependencies
+- **Zero install** — static HTML, CSS, and JS files with no server or dependencies
 - **Cross-platform** — works on Mac, Windows, Linux in any modern browser
 - **Direct folder save** — Chrome/Edge save `.wav` files directly to a folder
+- **Remembered output folder** — resumed direct-save sessions reuse the chosen folder when the browser still grants access
 - **Zip fallback** — Firefox/Safari bundle recordings as a zip download
 - **Session persistence** — progress saved to localStorage, resume after reload
 - **WAV output** — 44100 Hz, 16-bit, mono PCM
