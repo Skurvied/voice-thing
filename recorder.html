@@ -324,6 +324,26 @@
       outline: 2px solid var(--accent-primary);
       outline-offset: 3px;
     }
+
+    /* ── Recording Screen ────────────────────────────────────────────────────── */
+
+    .recording-screen { display: flex; height: 100vh; }
+    .sidebar { width: 250px; overflow-y: auto; border-right: 1px solid var(--border-color, #333); background: var(--bg-secondary); }
+    .sidebar-item { padding: 8px 12px; cursor: pointer; font-size: 0.85em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .sidebar-item:hover { background: rgba(255,255,255,0.05); }
+    .sidebar-item.active { background: var(--accent-primary, #6366f1); color: #fff; }
+    .sidebar-item.completed::before { content: '\2713  '; color: #4caf50; }
+    .sidebar-item.needs-rerecord::before { content: '\26A0  '; color: #ff9800; }
+    .main-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2em; position: relative; }
+    .line-text { font-size: 1.5em; line-height: 1.6; max-width: 700px; text-align: center; margin-bottom: 1em; }
+    .progress { font-size: 0.9em; opacity: 0.6; margin-bottom: 2em; }
+    .file-label { font-size: 0.85em; opacity: 0.5; margin-bottom: 0.5em; font-family: monospace; }
+    .display-name { font-size: 0.8em; opacity: 0.4; margin-bottom: 2em; }
+    .record-prompt { font-size: 1.1em; opacity: 0.7; margin-top: 1em; }
+    .shortcuts-footer { position: absolute; bottom: 1em; font-size: 0.75em; opacity: 0.4; font-family: monospace; }
+
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .recording-dot { width: 16px; height: 16px; background: #e53935; border-radius: 50%; animation: pulse 1s infinite; display: inline-block; vertical-align: middle; margin-right: 8px; }
   </style>
 </head>
 <body>
@@ -344,7 +364,8 @@
         completedLines: new Set(),
         screen: 'landing',
         browser: null,
-        dirHandle: null
+        dirHandle: null,
+        recordingState: 'idle'
       };
 
       // ── Browser detection ────────────────────────────────────────────────────
@@ -526,8 +547,7 @@
         beginBtn.textContent = 'Begin Recording';
         beginBtn.style.display = 'none';
         beginBtn.addEventListener('click', function () {
-          // Placeholder: recording screen will be implemented in a later task
-          console.log('Begin Recording clicked. dirHandle:', state.dirHandle);
+          showRecordingScreen();
         });
 
         if (browser.canDirectSave) {
@@ -734,6 +754,140 @@
         landing.appendChild(footer);
 
         app.appendChild(landing);
+      }
+
+      // ── Recording Screen ─────────────────────────────────────────────────────
+
+      /**
+       * Re-render the sidebar list to reflect current completedLines and currentIndex.
+       * Expects a .sidebar element to exist in the DOM.
+       */
+      function renderSidebar() {
+        var sidebar = document.querySelector('.sidebar');
+        if (!sidebar) return;
+
+        // Clear existing items safely
+        while (sidebar.firstChild) {
+          sidebar.removeChild(sidebar.firstChild);
+        }
+
+        state.entries.forEach(function (entry, idx) {
+          var item = document.createElement('div');
+          item.className = 'sidebar-item';
+          if (state.completedLines.has(idx)) {
+            item.classList.add('completed');
+          }
+          if (idx === state.currentIndex) {
+            item.classList.add('active');
+          }
+          item.textContent = entry.filename;
+          item.addEventListener('click', function () {
+            state.currentIndex = idx;
+            renderSidebar();
+            renderMainArea();
+          });
+          sidebar.appendChild(item);
+        });
+      }
+
+      /**
+       * Re-render only the main area (right panel) based on current state.
+       * Expects a .main-area element to exist in the DOM.
+       */
+      function renderMainArea() {
+        var mainArea = document.querySelector('.main-area');
+        if (!mainArea) return;
+
+        // Clear existing content safely
+        while (mainArea.firstChild) {
+          mainArea.removeChild(mainArea.firstChild);
+        }
+
+        var entry = state.entries[state.currentIndex];
+        var total = state.entries.length;
+
+        // Progress indicator
+        var progress = document.createElement('p');
+        progress.className = 'progress';
+        progress.textContent = (state.currentIndex + 1) + ' / ' + total;
+        mainArea.appendChild(progress);
+
+        // Current line text
+        var lineText = document.createElement('p');
+        lineText.className = 'line-text';
+        lineText.textContent = entry ? entry.text : '';
+        mainArea.appendChild(lineText);
+
+        // Target filename
+        var fileLabel = document.createElement('p');
+        fileLabel.className = 'file-label';
+        fileLabel.textContent = entry ? entry.filename : '';
+        mainArea.appendChild(fileLabel);
+
+        // Human-readable display name
+        var displayName = document.createElement('p');
+        displayName.className = 'display-name';
+        displayName.textContent = entry ? entry.displayName : '';
+        mainArea.appendChild(displayName);
+
+        // Recording state area
+        var recordPrompt = document.createElement('p');
+        recordPrompt.className = 'record-prompt';
+        if (state.recordingState === 'recording') {
+          var dot = document.createElement('span');
+          dot.className = 'recording-dot';
+          recordPrompt.appendChild(dot);
+          recordPrompt.appendChild(document.createTextNode('Recording…'));
+        } else {
+          recordPrompt.textContent = 'Hold SPACE to record';
+        }
+        mainArea.appendChild(recordPrompt);
+
+        // Keyboard shortcuts footer
+        var footer = document.createElement('p');
+        footer.className = 'shortcuts-footer';
+        footer.textContent = 'SPACE record | P play | ENTER keep | R retry';
+        mainArea.appendChild(footer);
+      }
+
+      /**
+       * Transition from the setup screen to the recording screen.
+       * Builds the two-panel layout (sidebar + main area).
+       */
+      function showRecordingScreen() {
+        state.screen = 'recording';
+        state.recordingState = 'idle';
+
+        // Clear #app safely
+        var app = document.getElementById('app');
+        while (app.firstChild) {
+          app.removeChild(app.firstChild);
+        }
+
+        // Remove centering from #app so the full-height flex layout works
+        app.style.display = 'block';
+        app.style.padding = '0';
+        app.style.minHeight = '';
+
+        // Outer recording screen wrapper
+        var screen = document.createElement('div');
+        screen.className = 'recording-screen';
+
+        // Sidebar
+        var sidebar = document.createElement('div');
+        sidebar.className = 'sidebar';
+        screen.appendChild(sidebar);
+
+        // Main area
+        var mainArea = document.createElement('div');
+        mainArea.className = 'main-area';
+        screen.appendChild(mainArea);
+
+        app.appendChild(screen);
+
+        // Populate both panels
+        renderSidebar();
+        renderMainArea();
       }
 
       // ── Init ─────────────────────────────────────────────────────────────────
